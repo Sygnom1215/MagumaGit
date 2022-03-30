@@ -5,12 +5,15 @@ using UnityEngine.Events;
 public class PlayerInput : MonoBehaviour
 {
     public UnityEvent<Vector2> OnMovementKeyPress;
-    
+
+    public UnityEvent OnCameraMoveKeyPress;
+    public UnityEvent OnCameraMoveKeyCut;
 
     // Update is called once per frame
     void Update()
     {
-        GetMovementInput();   
+        GetMovementInput();
+        GetCamaraMoveInput();
     }
 
     private void GetMovementInput()
@@ -18,5 +21,16 @@ public class PlayerInput : MonoBehaviour
         OnMovementKeyPress?.Invoke(
             new Vector2(Input.GetAxisRaw("Horizontal"),/* Input.GetAxisRaw("Vertical")*/0f)
             );
+    }
+    private void GetCamaraMoveInput()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            OnCameraMoveKeyPress?.Invoke();
+        }
+        else
+        {
+            OnCameraMoveKeyCut?.Invoke();
+        }
     }
 }
