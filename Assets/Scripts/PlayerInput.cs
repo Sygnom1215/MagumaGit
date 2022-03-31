@@ -24,7 +24,7 @@ public class PlayerInput : MonoBehaviour
     }
     private void GetCamaraMoveInput()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             OnCameraMoveKeyPress?.Invoke();
         }
