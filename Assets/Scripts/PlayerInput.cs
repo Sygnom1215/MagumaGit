@@ -16,7 +16,7 @@ public class PlayerInput : MonoBehaviour
     private void GetMovementInput()
     {
         OnMovementKeyPress?.Invoke(
-            new Vector2(Input.GetAxisRaw("Horizontal"),/* Input.GetAxisRaw("Vertical")*/0f)
+            new Vector2(Input.GetAxisRaw("Horizontal"),0f)
             );
     }
 }

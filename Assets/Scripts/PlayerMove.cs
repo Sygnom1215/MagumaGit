@@ -9,10 +9,18 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField]
     private MovementDataSO movementDataSO;
-
+    [SerializeField]
+    private Transform checkTransform;
+    [SerializeField]
+    private float checkRadius = 0f;
+    [SerializeField]
+    private LayerMask groundType = 0; //땅이 물인지/일반 땅인지/이속 디버프가 있는 땅인지 구분
+    [SerializeField]
+    private float jumpForce = 0f;
     private float currentVelocity = 3;
     private Vector2 _movementDir;
-
+    private bool isGround = false;
+    float moveinput;
     public UnityEvent<float> OnVelocityChange; //플레이어 속도가 바뀔 때 실행
     // Start is called before the first frame update
     void Awake()
@@ -22,11 +30,25 @@ public class PlayerMove : MonoBehaviour
     
     void FixedUpdate()
     {
+        moveinput = Input.GetAxisRaw("Horizontal");
         OnVelocityChange?.Invoke(currentVelocity);
         rigid.velocity = _movementDir * currentVelocity;
         //플레이어의 움직임은 방향과 속도의 곱
     }
-
+    private void Update()
+    {
+        if(CheckIsGround(isGround) == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Jump");
+            currentVelocity *= jumpForce;
+        }
+        
+    }
+    private bool CheckIsGround(bool isGround)
+    {
+        isGround = Physics2D.OverlapCircle(checkTransform.position, checkRadius, groundType);
+        return isGround;
+    }
     public void MovePlayer(Vector2 inputMovement)
     {
         if (inputMovement.sqrMagnitude > 0) //백터의 길이가 0보다 클 때
