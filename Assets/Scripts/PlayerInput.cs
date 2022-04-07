@@ -7,7 +7,7 @@ public class PlayerInput : MonoBehaviour
 
     public UnityEvent OnCameraMoveKeyPress;
     public UnityEvent OnCameraMoveKeyCut;
-
+    public UnityEvent OnVelocityChange;
     // Update is called once per frame
     void Update()
     {
@@ -15,6 +15,10 @@ public class PlayerInput : MonoBehaviour
     }
     private void GetCamaraMoveInput()
     {
+        if(Input.GetAxisRaw("Horizontal") > 0)
+        {
+            OnVelocityChange?.Invoke();
+        }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             OnCameraMoveKeyPress?.Invoke();
