@@ -8,12 +8,12 @@ public class PlayerHp : MonoBehaviour
     [SerializeField]
     private Image hpImage;
     [SerializeField]
-    private int playerHp = 100;
+    private float playerHp = 100;
     [SerializeField]
-    private int playerMaxHp = 100;
+    private float playerMaxHp = 100;
 
 
-    public void HpDecrease(int decrease)
+    public void HpDecrease(float decrease)
     {
         playerHp -= decrease;
         hpImage.fillAmount = playerHp / playerMaxHp;

@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 10256623}
-  - component: {fileID: 10256626}
   - component: {fileID: 10256625}
   - component: {fileID: 10256624}
   m_Layer: 5
@@ -199,21 +198,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10256622}
   m_CullTransparentMesh: 1
---- !u!114 &10256626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10256622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bb130427ad3bef4db2c270c938a7d18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpImage: {fileID: 10256624}
-  playerHp: 100
-  playerMaxHp: 100
 --- !u!1 &268385452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1095,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1292417489}
   - component: {fileID: 1292417488}
+  - component: {fileID: 1292417484}
   - component: {fileID: 1292417487}
   - component: {fileID: 1292417486}
   - component: {fileID: 1292417485}
@@ -1122,6 +1107,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1292417484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292417483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb130427ad3bef4db2c270c938a7d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpImage: {fileID: 10256624}
+  playerHp: 100
+  playerMaxHp: 100
 --- !u!114 &1292417485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,15 +1471,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 10256626}
+      - m_Target: {fileID: 1292417484}
         m_TargetAssemblyTypeName: PlayerHp, Assembly-CSharp
         m_MethodName: HpDecrease
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
-          m_FloatArgument: 0
+          m_IntArgument: 0
+          m_FloatArgument: 10
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
