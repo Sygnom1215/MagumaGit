@@ -8,7 +8,7 @@ public class MovementDataSO : ScriptableObject
     private float jumpForce = 8f;
     private float jumpTimeCounter = 1.2f;
     private float jumpTime = 0.35f;
-
+    public int jumpCounter = 1;
     private bool isGrounded;
     private bool isJumping;
 
@@ -17,6 +17,7 @@ public class MovementDataSO : ScriptableObject
     public float JumpForce { get { return jumpForce; } set { jumpForce = value; } }
     public float JumpTime { get { return jumpTime; } set { jumpTime = value; } }
     public float JumpTimeCounter { get { return jumpTimeCounter; } set { jumpTimeCounter = value; } }
+    public int JumpCounter { get { return jumpCounter; } set { jumpCounter = value; } }
 
     public bool IsGrounded { get { return isGrounded; } set { isGrounded = value; } }
     public bool IsJumping { get { return isJumping; } set { isJumping = value; } }

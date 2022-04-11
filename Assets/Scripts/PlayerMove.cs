@@ -9,8 +9,9 @@ public class PlayerMove : MonoBehaviour
     private MovementDataSO movementDataSO;
 
     private float moveInput;
-
+    private int jumpCounter = 0;
     private Rigidbody2D rigid;
+
     [SerializeField]
     private Transform feetPos;
     public float checkRdius;
@@ -22,22 +23,26 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        jumpCounter = movementDataSO.jumpCounter;
     }
 
     private void FixedUpdate()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
         OnVelocityChange?.Invoke(moveInput);
-
-        
     }
 
     private void Update()
     {
         movementDataSO.IsGrounded = Physics2D.OverlapCircle(feetPos.position, checkRdius, whatIsGround);
-        if (movementDataSO.IsGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        JudgmentInput();
+    }
+    private void JudgmentInput()
+    {
+        if (movementDataSO.IsGrounded == true && jumpCounter != 0 && Input.GetKeyDown(KeyCode.Space))
         {
             movementDataSO.IsJumping = true;
+            jumpCounter--;
             movementDataSO.JumpTimeCounter = movementDataSO.JumpTime;
             rigid.velocity = Vector2.up * movementDataSO.JumpForce;
         }
@@ -53,6 +58,10 @@ public class PlayerMove : MonoBehaviour
             {
                 movementDataSO.IsJumping = false;
             }
+        }
+        if(movementDataSO.IsJumping == false)
+        {
+            jumpCounter = movementDataSO.jumpCounter;
         }
     }
     public void MovePlayer()
