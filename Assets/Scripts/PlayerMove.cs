@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -17,8 +16,6 @@ public class PlayerMove : MonoBehaviour
     public float checkRdius;
     public LayerMask whatIsGround;
 
-    public UnityEvent<float> OnVelocityChange;
-
 
     private void Start()
     {
@@ -29,7 +26,6 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
-        OnVelocityChange?.Invoke(moveInput);
     }
 
     private void Update()
