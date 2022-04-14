@@ -18,4 +18,12 @@ public class PlayerHp : MonoBehaviour
         playerHp -= decrease;
         hpImage.fillAmount = playerHp / playerMaxHp;
     }
+
+    public void HpRecovery(float recovery)
+    {
+        playerHp += recovery;
+        if (playerHp > playerMaxHp)
+            playerHp = playerMaxHp;
+        hpImage.fillAmount = playerHp / playerMaxHp;
+    }
 }
