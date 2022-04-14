@@ -4,13 +4,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/Agent/MovementData")]
 public class MovementDataSO : ScriptableObject
 {
-    private float speed = 7f;
-    private float jumpForce = 8f;
-    private float jumpTimeCounter = 1.2f;
-    private float jumpTime = 0.35f;
+    //임시로 public
+    public float speed = 7f;
+    public float jumpForce = 8f;
+    public float jumpTimeCounter = 1.2f;
+    public float jumpTime = 0.35f;
     public int jumpCounter = 1;
-    private bool isGrounded;
-    private bool isJumping;
+    public bool isGrounded;
+    public bool isJumping;
 
     #region 겟터와 셋터
     public float Speed { get { return speed; } set { speed = value; } }

@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
     private MovementDataSO movementDataSO;
 
     private float moveInput;
-    private int jumpCounter = 0;
+    public int jumpCounter = 0;
     private Rigidbody2D rigid;
 
     [SerializeField]
@@ -16,33 +16,83 @@ public class PlayerMove : MonoBehaviour
     public float checkRdius;
     public LayerMask whatIsGround;
 
-
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(feetPos.position, checkRdius);
+    }
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-        jumpCounter = movementDataSO.jumpCounter;
+        jumpCounter = movementDataSO.JumpCounter;
     }
 
     private void FixedUpdate()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
+        rigid.velocity = new Vector2(moveInput * movementDataSO.Speed, rigid.velocity.y);
     }
 
     private void Update()
     {
         movementDataSO.IsGrounded = Physics2D.OverlapCircle(feetPos.position, checkRdius, whatIsGround);
         JudgmentInput();
+        SmoothFalling();
     }
+    private void SmoothFalling()
+    {
+        if (rigid.velocity.y < 0)
+        {
+            rigid.velocity += Vector2.up * Physics2D.gravity.y * 1.5f * Time.deltaTime;
+        }
+        else if (rigid.velocity.y > 0 && Input.GetKey(KeyCode.Space))
+        {
+            rigid.velocity += Vector2.up * Physics2D.gravity.y * 0.9f * Time.deltaTime;
+        }
+
+    }
+    //if (isGrounded == true && Input.GetKey(KeyCode.Space))
+    //    {
+    //        isJumping = true;
+    //        jumpTimeCounter = jumpTime;
+    //        buttonPressed = JUMP;
+    //        rb2d.velocity = Vector2.up * jumpSpeed;
+    //    }
+
+    //    if (Input.GetKey(KeyCode.Space) && isJumping == true)
+    //    {
+    //        if (jumpTimeCounter > 0)
+    //        {
+    //            rb2d.velocity = Vector2.up * jumpSpeed;
+    //            jumpTimeCounter -= Time.deltaTime;
+    //        }
+
+    //        else
+    //        {
+    //            isJumping = false;
+    //        }
+    //    }
+               
+    //    if (Input.GetKeyUp(KeyCode.Space))
+    //            {
+    //                isJumping = false; 
+    //            }
+    /// <summary>
+    ///플레이어가 입력한 값과 현재 상태에 따라서 실행할 행동을 정하는 함수
+    /// </summary>
     private void JudgmentInput()
     {
-        if (movementDataSO.IsGrounded == true && jumpCounter != 0 && Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetKeyDown(KeyCode.Space) && movementDataSO.IsGrounded == true && movementDataSO.IsJumping == false)
         {
             movementDataSO.IsJumping = true;
             jumpCounter--;
             movementDataSO.JumpTimeCounter = movementDataSO.JumpTime;
             rigid.velocity = Vector2.up * movementDataSO.JumpForce;
         }
-
+        if (Input.GetKey(KeyCode.Space) && movementDataSO.IsGrounded == true)
+        {
+        }
         if (Input.GetKey(KeyCode.Space) && movementDataSO.IsJumping == true)
         {
             if (movementDataSO.JumpTimeCounter > 0)
@@ -55,15 +105,15 @@ public class PlayerMove : MonoBehaviour
                 movementDataSO.IsJumping = false;
             }
         }
-        if(movementDataSO.IsJumping == false)
+        if (Input.GetKeyUp(KeyCode.Space))
         {
-            jumpCounter = movementDataSO.jumpCounter;
+            movementDataSO.IsJumping = false;
         }
     }
+ 
     public void MovePlayer()
     {
-        rigid.velocity = new Vector2(moveInput * movementDataSO.Speed, rigid.velocity.y);
-
+        //turn
         if (moveInput > 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
@@ -72,7 +122,7 @@ public class PlayerMove : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
-       
+
     }
 }
 
