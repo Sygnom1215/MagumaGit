@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 1708648092}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -521,7 +521,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520444517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.36, z: -10}
+  m_LocalPosition: {x: -0.34, y: -2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1755485228}
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b874a92a720804eb872d4730b038c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1708648091}
 --- !u!1 &542078074
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896357481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.36, z: -10}
+  m_LocalPosition: {x: -0.34, y: -2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1190,12 +1190,22 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4846434428491557996, guid: 6fad89e597729974bb34f783f01edfae, type: 3}
   m_PrefabInstance: {fileID: 2093487984}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1708648091}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb130427ad3bef4db2c270c938a7d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1708648091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4846434428491558005, guid: 6fad89e597729974bb34f783f01edfae, type: 3}
+  m_PrefabInstance: {fileID: 2093487984}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1708648092 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4846434428491557999, guid: 6fad89e597729974bb34f783f01edfae, type: 3}
+  m_PrefabInstance: {fileID: 2093487984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1755485227
 GameObject:
   m_ObjectHideFlags: 3
@@ -1600,6 +1610,22 @@ PrefabInstance:
     - target: {fileID: 4846434428491558001, guid: 6fad89e597729974bb34f783f01edfae, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846434428491558003, guid: 6fad89e597729974bb34f783f01edfae, type: 3}
+      propertyPath: OnCameraMoveKeyCut.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 520444520}
+    - target: {fileID: 4846434428491558003, guid: 6fad89e597729974bb34f783f01edfae, type: 3}
+      propertyPath: OnCameraMoveKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 520444520}
+    - target: {fileID: 4846434428491558003, guid: 6fad89e597729974bb34f783f01edfae, type: 3}
+      propertyPath: OnCameraMoveKeyCut.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CameraMoveFalse
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846434428491558003, guid: 6fad89e597729974bb34f783f01edfae, type: 3}
+      propertyPath: OnCameraMoveKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CameraMoveTrue
       objectReference: {fileID: 0}
     - target: {fileID: 4846434428491558005, guid: 6fad89e597729974bb34f783f01edfae, type: 3}
       propertyPath: m_Name
