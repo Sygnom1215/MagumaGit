@@ -15,10 +15,18 @@ public class HpItem : MonoBehaviour
     {
         if (col.tag == "Item")
         {
-            
+
             playerHp.HpRecovery(10f);
             Destroy(col.gameObject);
         }
     }
-    
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if(col.tag == "HealZone")
+        {
+            playerHp.HpRecovery(1f);
+        }
+    }
+
 }

@@ -17,6 +17,11 @@ public class PlayerHp : MonoBehaviour
     {
         playerHp -= decrease;
         hpImage.fillAmount = playerHp / playerMaxHp;
+        if(playerHp <= 0)
+        {
+            //게임오버씬 or 리스폰부활
+            Destroy(gameObject);
+        }
     }
 
     public void HpRecovery(float recovery)
@@ -25,5 +30,10 @@ public class PlayerHp : MonoBehaviour
         if (playerHp > playerMaxHp)
             playerHp = playerMaxHp;
         hpImage.fillAmount = playerHp / playerMaxHp;
+    }
+
+    public void MaxHpUpgrade(float upgrade)
+    {
+        playerMaxHp += upgrade;
     }
 }
