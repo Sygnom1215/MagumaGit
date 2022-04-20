@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class HpItem : MonoBehaviour
 {
-    public PlayerHp playerHp;
+    private PlayerHp playerHp;
+
+    private void Start()
+    {
+        playerHp = GetComponentInParent<PlayerHp>();
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Player")
+        if (col.tag == "Item")
         {
             
             playerHp.HpRecovery(10f);
-            Destroy(gameObject);
+            Destroy(col.gameObject);
         }
     }
     
