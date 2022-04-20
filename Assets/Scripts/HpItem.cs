@@ -27,6 +27,10 @@ public class HpItem : MonoBehaviour
         {
             playerHp.HpRecovery(1f);
         }
+        else if(col.tag == "Water")
+        {
+            playerHp.HpDecrease(0.01f);
+        }
     }
 
 }

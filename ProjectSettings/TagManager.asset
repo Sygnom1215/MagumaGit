@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Item
   - HealZone
+  - Water
   layers:
   - Default
   - TransparentFX
