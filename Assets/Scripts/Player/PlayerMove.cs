@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class PlayerMove : MonoBehaviour
         TurnPlayer();
         SmoothFalling();
     }
-    
+
     //떨어질 때는 좀 더 강한 중력 적용
     private void SmoothFalling()
     {
@@ -87,7 +88,24 @@ public class PlayerMove : MonoBehaviour
             movementDataSO.IsJumping = false;
         }
     }
- 
+
+    public Tilemap tilemap;
+    private void OnCollisionEnter2D(Collision2D _col)
+    {
+
+        tilemap = _col.gameObject.GetComponent<Tilemap>();
+        this.tilemap.RefreshAllTiles();
+        int x, y;
+        x = this.tilemap.WorldToCell(_col.transform.position).x;
+        y = this.tilemap.WorldToCell(_col.transform.position).y;
+
+        Vector3Int v3Int = new Vector3Int(x, y, 0);
+
+        this.tilemap.SetTileFlags(v3Int, TileFlags.None);
+        this.tilemap.SetColor(v3Int, (Color.red));
+
+    }
+
     //자연스러운 움직임을 위해 플레이어 반전
     public void TurnPlayer()
     {
@@ -100,6 +118,5 @@ public class PlayerMove : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
-
     }
 }
