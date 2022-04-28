@@ -5142,6 +5142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDataSO: {fileID: 0}
+  jumpCounter: 0
   feetPos: {fileID: 0}
   checkRdius: 0
   whatIsGround:
@@ -5166,6 +5167,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnVelocityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnJumpPlatform:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDownPlatform:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1292417483
@@ -5203,6 +5210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDataSO: {fileID: 11400000, guid: 34ed4697152d0374f95a576fae678211, type: 2}
+  jumpCounter: 0
   feetPos: {fileID: 2044203047}
   checkRdius: 2
   whatIsGround:
@@ -5277,6 +5285,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnJumpPlatform:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDownPlatform:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &1292417486
 Rigidbody2D:
   serializedVersion: 4

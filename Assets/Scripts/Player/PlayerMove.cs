@@ -89,7 +89,8 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    public Tilemap tilemap;
+    //타일 셀 하나 파괴시켜보는 코드 (예은이가 테스트 한 잔해, 일단 남겨두지만 나중에도 필요 없으면 지우기)
+/*    public Tilemap tilemap;
     private void OnCollisionEnter2D(Collision2D _col)
     {
 
@@ -104,7 +105,7 @@ public class PlayerMove : MonoBehaviour
         this.tilemap.SetTileFlags(v3Int, TileFlags.None);
         this.tilemap.SetColor(v3Int, (Color.red));
 
-    }
+    }*/
 
     //자연스러운 움직임을 위해 플레이어 반전
     public void TurnPlayer()
