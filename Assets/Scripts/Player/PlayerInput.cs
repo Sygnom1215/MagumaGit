@@ -15,7 +15,7 @@ public class PlayerInput : MonoBehaviour
     {
         GetCamaraMoveInput(); //카메라 움직임 W / Up Arrow
         GetMoveInput(); // Player Move
-        GetJumpPlatformInput();
+        GetJumpPlatformInput(); //얇은 플랫폼 점프해서 올라감
     }
 
     private void GetMoveInput()
@@ -32,6 +32,9 @@ public class PlayerInput : MonoBehaviour
             OnJumpPlatform?.Invoke();
         }
     }
+    /// <summary>
+    /// 얇은 플랫폼 위에 있을 때 down키를 누르면 플랫폼을 내려감
+    /// </summary>
     private void OnCollisionStay2D(Collision2D collision)
     {
         if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
