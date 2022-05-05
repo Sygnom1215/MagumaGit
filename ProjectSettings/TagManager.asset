@@ -8,6 +8,7 @@ TagManager:
   - HealZone
   - Water
   - Trickle
+  - Deadzone
   layers:
   - Default
   - TransparentFX

@@ -16,14 +16,6 @@ public class PlayerHp : MonoBehaviour
 
     private bool _isDead = false;
 
-    private void Update()
-    {
-        if (transform.position.y <= -10f)
-        {
-            PlayerDead();
-        }
-    }
-
     public void HpDecrease(float decrease)
     {
         playerHp -= decrease;
@@ -39,6 +31,7 @@ public class PlayerHp : MonoBehaviour
         playerHp = 0;
         hpImage.fillAmount = playerHp / playerMaxHp;
         _isDead = true;
+        Destroy(gameObject);
         CMCam.SetActive(false);
     }
 
