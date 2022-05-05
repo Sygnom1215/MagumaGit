@@ -19,6 +19,12 @@ public class HpItem : MonoBehaviour
             playerHp.HpRecovery(10f);
             Destroy(col.gameObject);
         }
+        if (col.tag == "Trickle")
+        {
+
+            playerHp.HpDecrease(10f);
+            Destroy(col.gameObject);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D col)
