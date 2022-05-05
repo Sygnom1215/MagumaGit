@@ -6,12 +6,23 @@ using UnityEngine.UI;
 public class PlayerHp : MonoBehaviour
 {
     [SerializeField]
+    private GameObject CMCam;
+    [SerializeField]
     private Image hpImage;
     [SerializeField]
     private float playerHp = 100;
     [SerializeField]
     private float playerMaxHp = 100;
 
+    private bool _isDead = false;
+
+    private void Update()
+    {
+        if (transform.position.y <= -10f)
+        {
+            PlayerDead();
+        }
+    }
 
     public void HpDecrease(float decrease)
     {
@@ -19,9 +30,16 @@ public class PlayerHp : MonoBehaviour
         hpImage.fillAmount = playerHp / playerMaxHp;
         if(playerHp <= 0)
         {
-            //게임오버씬 or 리스폰부활
-            Destroy(gameObject);
+            PlayerDead();
         }
+    }
+
+    public void PlayerDead()
+    {
+        playerHp = 0;
+        hpImage.fillAmount = playerHp / playerMaxHp;
+        _isDead = true;
+        CMCam.SetActive(false);
     }
 
     public void HpRecovery(float recovery)

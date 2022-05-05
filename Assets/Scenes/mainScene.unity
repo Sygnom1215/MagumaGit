@@ -1189,6 +1189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDataSO: {fileID: 11400000, guid: 34ed4697152d0374f95a576fae678211, type: 2}
+  jumpCounter: 0
   feetPos: {fileID: 0}
   checkRdius: 0
   whatIsGround:
@@ -1213,6 +1214,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnVelocityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnJumpPlatform:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDownPlatform:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1270446277
@@ -1856,6 +1863,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4846434428491557996, guid: 6fad89e597729974bb34f783f01edfae, type: 3}
+      propertyPath: CMCam
+      value: 
+      objectReference: {fileID: 520444517}
     - target: {fileID: 4846434428491557996, guid: 6fad89e597729974bb34f783f01edfae, type: 3}
       propertyPath: hpImage
       value: 
