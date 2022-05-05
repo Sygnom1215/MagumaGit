@@ -13,6 +13,8 @@ public class PlayerHp : MonoBehaviour
     private float playerHp = 100;
     [SerializeField]
     private float playerMaxHp = 100;
+    [SerializeField]
+    private Transform respawnPos;
 
     private bool _isDead = false;
 
@@ -31,8 +33,10 @@ public class PlayerHp : MonoBehaviour
         playerHp = 0;
         hpImage.fillAmount = playerHp / playerMaxHp;
         _isDead = true;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         CMCam.SetActive(false);
+
+        Invoke("Respawn", 3f);
     }
 
     public void HpRecovery(float recovery)
@@ -46,5 +50,14 @@ public class PlayerHp : MonoBehaviour
     public void MaxHpUpgrade(float upgrade)
     {
         playerMaxHp += upgrade;
+    }
+
+    public void Respawn()
+    {
+        playerHp = playerMaxHp;
+        hpImage.fillAmount = playerHp / playerMaxHp;
+        transform.position = respawnPos.position;
+        gameObject.SetActive(true);
+        CMCam.SetActive(true);
     }
 }
