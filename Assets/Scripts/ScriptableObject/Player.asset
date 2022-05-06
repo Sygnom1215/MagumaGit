@@ -13,9 +13,4 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   speed: 7
-  jumpForce: 8
-  jumpTimeCounter: 0.2
-  jumpTime: 0.2
-  jumpCounter: 2
-  isGrounded: 1
-  isJumping: 0
+  isCanRunning: 1

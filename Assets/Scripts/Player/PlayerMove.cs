@@ -88,6 +88,22 @@ public class PlayerMove : MonoBehaviour
             movementDataSO.IsJumping = false;
         }
     }
+    public void SpeedUp()
+    {
+        if(movementDataSO.IsCanRunning && !movementDataSO.IsRunning)
+        {
+            StartCoroutine(SpeedUpIE());
+        }
+    }
+    private IEnumerator SpeedUpIE()
+    {
+        float defaultSpeed = movementDataSO.Speed;
+        movementDataSO.Speed += 5f;
+        movementDataSO.IsRunning = true;
+        yield return new WaitForSeconds(5f);
+        movementDataSO.Speed = defaultSpeed;
+        movementDataSO.IsRunning = false;
+    }
 
     //타일 셀 하나 파괴시켜보는 코드 (예은이가 테스트 한 잔해, 일단 남겨두지만 나중에도 필요 없으면 지우기)
 /*    public Tilemap tilemap;
