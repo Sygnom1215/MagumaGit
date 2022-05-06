@@ -14,7 +14,7 @@ public class MovementDataSO : ScriptableObject
     private bool isJumping;
     private bool isDash;
     private bool isRunning;
-    private bool isCanDash = false;
+    public bool isCanDash = false;
     public bool isCanRunning = false;
 
     #region ╟ыем©м ╪бем
