@@ -5,18 +5,20 @@ using UnityEngine;
 using UnityEngine.Events;
 public class PlayerInput : MonoBehaviour
 {
-    public UnityEvent OnRunningKeyPress;
     public UnityEvent OnCameraMoveKeyPress;
     public UnityEvent OnCameraMoveKeyCut;
     public UnityEvent OnVelocityChange;
     public UnityEvent OnJumpPlatform;
     public UnityEvent OnDownPlatform;
+    public UnityEvent OnRunningKeyPress;
+    public UnityEvent OnDashKeyPress;
     void Update()
     {
         GetCamaraMoveInput(); //카메라 움직임 W / Up Arrow
         GetMoveInput(); // Player Move
         GetJumpPlatformInput(); //얇은 플랫폼 점프해서 올라감
         GetRunningInput(); //일반 공격 감지
+        GetDashInput();
     }
 
     private void GetMoveInput()
@@ -59,6 +61,13 @@ public class PlayerInput : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Z))
         {
             OnRunningKeyPress?.Invoke();
+        }
+    }
+    private void GetDashInput()
+    {
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            OnDashKeyPress?.Invoke();
         }
     }
 }

@@ -17,16 +17,11 @@ public class PlayerMove : MonoBehaviour
     public float checkRdius;
     public LayerMask whatIsGround;
 
-    //플레이어 바닥에 닿았는지 판정하는 기즈모
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(feetPos.position, checkRdius);
-    }
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         jumpCounter = movementDataSO.JumpCounter;
+        TurnPlayer();
     }
     //물리 판정할 땐 fixed update 사용
     private void FixedUpdate()
@@ -43,7 +38,68 @@ public class PlayerMove : MonoBehaviour
         TurnPlayer();
         SmoothFalling();
     }
+    public void SpeedUp()
+    {
+        if(movementDataSO.IsCanRunning && !movementDataSO.IsRunning)
+        {
+            StartCoroutine(SpeedUpIE());
+        }
+    }
+    public void Dash()
+    {
+        if (movementDataSO.IsCanDash && !movementDataSO.IsDash)
+        {
+            DoDash();
+            movementDataSO.IsDash = false;
+        }
+    }
 
+
+    //플레이어 바닥에 닿았는지 판정하는 범위의 기즈모
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(feetPos.position, checkRdius);
+    }
+    /// <summary>
+    ///플레이어가 입력한 값과 현재 상태에 따라서 실행할 행동을 정하는 함수
+    /// </summary>
+    private void JudgmentInput()
+    {
+        //만약 점프 키가 눌렸고 점프 가능 횟수가 남아있다면
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCounter > 0)
+        {
+            movementDataSO.IsJumping = true;
+            jumpCounter--;
+            movementDataSO.JumpTimeCounter = movementDataSO.JumpTime;
+            rigid.velocity = Vector2.up * movementDataSO.JumpForce;
+        }
+        //점프키를 계속 누르는 중이면
+        if (Input.GetKey(KeyCode.Space) && movementDataSO.IsJumping == true)
+        {
+            //점프 가능한 시간이 남아있다면
+            if (movementDataSO.JumpTimeCounter > 0)
+            {
+                rigid.velocity = Vector2.up * movementDataSO.JumpForce;
+                movementDataSO.JumpTimeCounter -= Time.deltaTime;
+            }
+            //점프 가능한 시간이 남아있지 않았다면
+            if (movementDataSO.JumpTimeCounter <= 0)
+            {
+                movementDataSO.IsJumping = false;
+            }
+        }
+        //땅에 착지했고 점프키를 누르지 않은 상태이면(착지만 한걸로 체크하면 예외상황 발생함)
+        if (movementDataSO.IsGrounded == true && movementDataSO.IsJumping == false)
+        {
+            jumpCounter = movementDataSO.jumpCounter;
+        }
+        //점프키에서 손을 떼면
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            movementDataSO.IsJumping = false;
+        }
+    }
     //떨어질 때는 좀 더 강한 중력 적용
     private void SmoothFalling()
     {
@@ -58,43 +114,6 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-    /// <summary>
-    ///플레이어가 입력한 값과 현재 상태에 따라서 실행할 행동을 정하는 함수
-    /// </summary>
-    private void JudgmentInput()
-    {
-
-        if (Input.GetKeyDown(KeyCode.Space) && movementDataSO.IsGrounded == true && movementDataSO.IsJumping == false)
-        {
-            movementDataSO.IsJumping = true;
-            jumpCounter--;
-            movementDataSO.JumpTimeCounter = movementDataSO.JumpTime;
-            rigid.velocity = Vector2.up * movementDataSO.JumpForce;
-        }
-        if (Input.GetKey(KeyCode.Space) && movementDataSO.IsJumping == true)
-        {
-            if (movementDataSO.JumpTimeCounter > 0)
-            {
-                rigid.velocity = Vector2.up * movementDataSO.JumpForce;
-                movementDataSO.JumpTimeCounter -= Time.deltaTime;
-            }
-            else
-            {
-                movementDataSO.IsJumping = false;
-            }
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            movementDataSO.IsJumping = false;
-        }
-    }
-    public void SpeedUp()
-    {
-        if(movementDataSO.IsCanRunning && !movementDataSO.IsRunning)
-        {
-            StartCoroutine(SpeedUpIE());
-        }
-    }
     private IEnumerator SpeedUpIE()
     {
         float defaultSpeed = movementDataSO.Speed;
@@ -112,21 +131,17 @@ public class PlayerMove : MonoBehaviour
         if (moveInput > 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
+            movementDataSO.PlayerDir = 1;
         }
         else if (moveInput < 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-    }
-    public void Dash()
-    {
-        if (movementDataSO.IsCanDash && !movementDataSO.IsDash)
-        {
-            DoDash();
+            movementDataSO.PlayerDir = -1;
         }
     }
     private void DoDash()
     {
-        rigid.AddForce(new Vector3(0.5f,0,0), ForceMode2D.Impulse);
+        movementDataSO.IsDash = true;
+        //rigid.velocity = new Vector2(500f * movementDataSO.PlayerDir,0);
     }
 }

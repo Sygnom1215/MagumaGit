@@ -9,11 +9,12 @@ public class MovementDataSO : ScriptableObject
     private float jumpForce = 8f;
     private float jumpTimeCounter = 1.2f;
     private float jumpTime = 0.35f;
-    private int jumpCounter = 1;
-    private bool isGrounded;
-    private bool isJumping;
-    private bool isDash;
-    private bool isRunning;
+    public int jumpCounter = 2;
+    public int playerDir = -1;
+    private bool isGrounded =false;
+    private bool isJumping = false;
+    private bool isDash = false;
+    private bool isRunning =false;
     public bool isCanDash = false;
     public bool isCanRunning = false;
 
@@ -23,6 +24,7 @@ public class MovementDataSO : ScriptableObject
     public float JumpTime { get { return jumpTime; } set { jumpTime = value; } }
     public float JumpTimeCounter { get { return jumpTimeCounter; } set { jumpTimeCounter = value; } }
     public int JumpCounter { get { return jumpCounter; } set { jumpCounter = value; } }
+    public int PlayerDir { get { return playerDir; } set { playerDir = value; } }
 
     public bool IsGrounded { get { return isGrounded; } set { isGrounded = value; } }
     public bool IsJumping { get { return isJumping; } set { isJumping = value; } }
