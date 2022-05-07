@@ -13,10 +13,20 @@ public class HpItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Item")
+        if(col.tag == "Deadzone")
+        {
+            playerHp.PlayerDead();
+        }
+        else if (col.tag == "Item")
         {
 
             playerHp.HpRecovery(10f);
+            Destroy(col.gameObject);
+        }
+        else if (col.tag == "Trickle")
+        {
+
+            playerHp.HpDecrease(10f);
             Destroy(col.gameObject);
         }
     }
