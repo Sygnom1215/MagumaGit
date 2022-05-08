@@ -5893,6 +5893,18 @@ PrefabInstance:
       propertyPath: OnDefaultAttackPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675738, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675738, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675738, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 780907868418675743, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: m_Name
       value: Player

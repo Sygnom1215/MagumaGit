@@ -35,8 +35,8 @@ public class PlayerMove : MonoBehaviour
         //바닥에 닿았는지 체크하는 원 생성
         movementDataSO.IsGrounded = Physics2D.OverlapCircle(feetPos.position, checkRdius, whatIsGround);
         JudgmentInput();
-        TurnPlayer();
         SmoothFalling();
+        TurnPlayer();
     }
     public void SpeedUp()
     {
@@ -49,8 +49,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (movementDataSO.IsCanDash && !movementDataSO.IsDash)
         {
-            DoDash();
-            movementDataSO.IsDash = false;
+            StartCoroutine(DashIE());
         }
     }
 
@@ -139,9 +138,22 @@ public class PlayerMove : MonoBehaviour
             movementDataSO.PlayerDir = -1;
         }
     }
+    private IEnumerator DashIE()
+    {
+        Debug.Log("doDash");
+        movementDataSO.IsDash = true;
+        moveInput += 50;
+        yield return new WaitForSeconds(0.1f);
+        rigid.velocity = Vector2.zero;
+        moveInput = 0;
+        yield return new WaitForSeconds(0.4f);
+        movementDataSO.IsDash = false;
+    }
     private void DoDash()
     {
         movementDataSO.IsDash = true;
+        Debug.Log("doDash");
+        rigid.AddForce(Vector2.right *50f * movementDataSO.PlayerDir, ForceMode2D.Impulse);
         //rigid.velocity = new Vector2(500f * movementDataSO.PlayerDir,0);
     }
 }
