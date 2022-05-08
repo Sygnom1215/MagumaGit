@@ -142,10 +142,8 @@ public class PlayerMove : MonoBehaviour
     {
         Debug.Log("doDash");
         movementDataSO.IsDash = true;
-        moveInput += 50;
         yield return new WaitForSeconds(0.1f);
         rigid.velocity = Vector2.zero;
-        moveInput = 0;
         yield return new WaitForSeconds(0.4f);
         movementDataSO.IsDash = false;
     }
