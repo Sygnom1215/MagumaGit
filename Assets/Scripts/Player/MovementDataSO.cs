@@ -13,9 +13,9 @@ public class MovementDataSO : ScriptableObject
     public int playerDir = -1;
     private bool isGrounded =false;
     private bool isJumping = false;
-    private bool isDash = false;
-    private bool isRunning =false;
-    public bool isCanDash = false;
+    public bool isDash = false;
+    private bool isRunning =false;  
+    public bool isCanDash = false;  //대쉬라는 행위가 가능한가
     public bool isCanRunning = false;
 
     #region 겟터와 셋터

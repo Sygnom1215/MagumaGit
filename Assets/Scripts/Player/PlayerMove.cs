@@ -10,6 +10,8 @@ public class PlayerMove : MonoBehaviour
 
     private float moveInput;
     public int jumpCounter = 0;
+    private bool isDashOnce = false;
+    //대시를 한 번 했는가
     private Rigidbody2D rigid;
 
     [SerializeField]
@@ -28,6 +30,10 @@ public class PlayerMove : MonoBehaviour
     {
         moveInput = Input.GetAxisRaw("Horizontal");
         rigid.velocity = new Vector2(moveInput * movementDataSO.Speed, rigid.velocity.y);
+        if (movementDataSO.IsDash && !isDashOnce)
+        {
+            DoDash();
+        }
     }
 
     private void Update()
@@ -40,7 +46,7 @@ public class PlayerMove : MonoBehaviour
     }
     public void SpeedUp()
     {
-        if(movementDataSO.IsCanRunning && !movementDataSO.IsRunning)
+        if (movementDataSO.IsCanRunning && !movementDataSO.IsRunning)
         {
             StartCoroutine(SpeedUpIE());
         }
@@ -51,6 +57,11 @@ public class PlayerMove : MonoBehaviour
         {
             StartCoroutine(DashIE());
         }
+    }
+    private void DoDash()
+    {
+        rigid.AddForce(Vector2.right * 40f * movementDataSO.PlayerDir, ForceMode2D.Impulse);
+        isDashOnce = true;
     }
 
 
@@ -142,16 +153,13 @@ public class PlayerMove : MonoBehaviour
     {
         Debug.Log("doDash");
         movementDataSO.IsDash = true;
-        yield return new WaitForSeconds(0.1f);
+        float gravity = rigid.gravityScale;
+        rigid.gravityScale = 0;
+        yield return new WaitForSeconds(0.01f);
         rigid.velocity = Vector2.zero;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.4f); //쿨타임
+        rigid.gravityScale = gravity;
         movementDataSO.IsDash = false;
-    }
-    private void DoDash()
-    {
-        movementDataSO.IsDash = true;
-        Debug.Log("doDash");
-        rigid.AddForce(Vector2.right *50f * movementDataSO.PlayerDir, ForceMode2D.Impulse);
-        //rigid.velocity = new Vector2(500f * movementDataSO.PlayerDir,0);
+        isDashOnce = false;
     }
 }
