@@ -16,11 +16,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject TitlePanel;
     [SerializeField] GameObject optionPanel;
 
-    public string PlayerName = "무명";
+    public string playerName = "무명";
 
     //옵션
-    [SerializeField] Slider chatSpeedSlider;
-    [SerializeField] Slider audoSpeedSlider;
+    //[SerializeField] Slider chatSpeedSlider;
+    //[SerializeField] Slider audoSpeedSlider;
 
     //FadeIn
     [SerializeField] Image BlackImage;
@@ -47,15 +47,15 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        TEXT.chatSpeed = PlayerPrefs.GetFloat("chatSpeed", 1);
-        //chatSpeedSlider.maxValue = 0.3f; // 슬라이더의 최댓값을 0.3으로 설정
-        //chatSpeedSlider.minValue = 0.05f; // 슬라이더의 최솟값을 0.05로 설정
-        chatSpeedSlider.value = chatSpeedSlider.value * -1; // 슬라이더 값 -1 곱하기
-        chatSpeedSlider.value = TEXT.chatSpeed; // 슬라이더 값을 chatspeed로 변경
-        TEXT.autoSpeed = PlayerPrefs.GetFloat("auto", 1);
-        audoSpeedSlider.value = audoSpeedSlider.value * -1;
-        audoSpeedSlider.value = TEXT.autoSpeed;
-        Debug.Log(PlayerPrefs.GetFloat("auto", 1));
+        //TEXT.chatSpeed = PlayerPrefs.GetFloat("chatSpeed", 1);
+        ////chatSpeedSlider.maxValue = 0.3f; // 슬라이더의 최댓값을 0.3으로 설정
+        ////chatSpeedSlider.minValue = 0.05f; // 슬라이더의 최솟값을 0.05로 설정
+        //chatSpeedSlider.value = chatSpeedSlider.value * -1; // 슬라이더 값 -1 곱하기
+        //chatSpeedSlider.value = TEXT.chatSpeed; // 슬라이더 값을 chatspeed로 변경
+        //TEXT.autoSpeed = PlayerPrefs.GetFloat("auto", 1);
+        //audoSpeedSlider.value = audoSpeedSlider.value * -1;
+        //audoSpeedSlider.value = TEXT.autoSpeed;
+        //Debug.Log(PlayerPrefs.GetFloat("auto", 1));
     }
 
     public void Update()
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
                 Buttons.SetActive(false);
                 textManager.chatID = 1;
                 StartCoroutine(FadeIn());
-                StartCoroutine(textManager.Typing());
+                //StartCoroutine(textManager.Typing());
                 break;
             case "종료":
 #if UNITY_EDITOR
@@ -140,18 +140,18 @@ public class GameManager : MonoBehaviour
         StopAllCoroutines();
         OptionPanelOC(1);
         BlackImageObject.SetActive(false);
-        TEXT.textImage.gameObject.SetActive(false);
-        TEXT.background[TEXT.backID].gameObject.SetActive(false);
+        TEXT.textPanelObj.gameObject.SetActive(false);
+        TEXT.background[TEXT.backgroundID].gameObject.SetActive(false);
         TitlePanel.SetActive(true);
         Buttons.SetActive(true);
     }
 
     public void InputName()
     {
-        PlayerName = inputField.text;
+        playerName = inputField.text;
         InputNameCanvas.SetActive(false);
         TEXT.chatID = 100003;
         StartCoroutine(TEXT.LoadTextData());
-        StartCoroutine(TEXT.Typing());
+        //StartCoroutine(TEXT.Typing());
     }
 }
