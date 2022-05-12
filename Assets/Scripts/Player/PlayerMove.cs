@@ -22,15 +22,15 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-        jumpCounter = movementDataSO.JumpCounter;
+        jumpCounter = movementDataSO._movementData.JumpCounter;
         TurnPlayer();
     }
     //물리 판정할 땐 fixed update 사용
     private void FixedUpdate()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
-        rigid.velocity = new Vector2(moveInput * movementDataSO.Speed, rigid.velocity.y);
-        if (movementDataSO.IsDash && !isDashOnce)
+        rigid.velocity = new Vector2(moveInput * movementDataSO._movementData.Speed, rigid.velocity.y);
+        if (movementDataSO._movementData.IsDash && !isDashOnce)
         {
             DoDash();
         }
@@ -39,28 +39,28 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         //바닥에 닿았는지 체크하는 원 생성
-        movementDataSO.IsGrounded = Physics2D.OverlapCircle(feetPos.position, checkRdius, whatIsGround);
+        movementDataSO._movementData.IsGrounded = Physics2D.OverlapCircle(feetPos.position, checkRdius, whatIsGround);
         JudgmentInput();
         SmoothFalling();
         TurnPlayer();
     }
     public void SpeedUp()
     {
-        if (movementDataSO.IsCanRunning && !movementDataSO.IsRunning)
+        if (movementDataSO._movementData.IsCanRunning && !movementDataSO._movementData.IsRunning)
         {
             StartCoroutine(SpeedUpIE());
         }
     }
     public void Dash()
     {
-        if (movementDataSO.IsCanDash && !movementDataSO.IsDash)
+        if (movementDataSO._movementData.IsCanDash && !movementDataSO._movementData.IsDash)
         {
             StartCoroutine(DashIE());
         }
     }
     private void DoDash()
     {
-        rigid.AddForce(Vector2.right * 40f * movementDataSO.PlayerDir, ForceMode2D.Impulse);
+        rigid.AddForce(Vector2.right * 40f * movementDataSO._movementData.PlayerDir, ForceMode2D.Impulse);
         isDashOnce = true;
     }
 
@@ -79,35 +79,35 @@ public class PlayerMove : MonoBehaviour
         //만약 점프 키가 눌렸고 점프 가능 횟수가 남아있다면
         if (Input.GetKeyDown(KeyCode.Space) && jumpCounter > 0)
         {
-            movementDataSO.IsJumping = true;
+            movementDataSO._movementData.IsJumping = true;
             jumpCounter--;
-            movementDataSO.JumpTimeCounter = movementDataSO.JumpTime;
-            rigid.velocity = Vector2.up * movementDataSO.JumpForce;
+            movementDataSO._movementData.JumpTimeCounter = movementDataSO._movementData.JumpTime;
+            rigid.velocity = Vector2.up * movementDataSO._movementData.JumpForce;
         }
         //점프키를 계속 누르는 중이면
-        if (Input.GetKey(KeyCode.Space) && movementDataSO.IsJumping == true)
+        if (Input.GetKey(KeyCode.Space) && movementDataSO._movementData.IsJumping == true)
         {
             //점프 가능한 시간이 남아있다면
-            if (movementDataSO.JumpTimeCounter > 0)
+            if (movementDataSO._movementData.JumpTimeCounter > 0)
             {
-                rigid.velocity = Vector2.up * movementDataSO.JumpForce;
-                movementDataSO.JumpTimeCounter -= Time.deltaTime;
+                rigid.velocity = Vector2.up * movementDataSO._movementData.JumpForce;
+                movementDataSO._movementData.JumpTimeCounter -= Time.deltaTime;
             }
             //점프 가능한 시간이 남아있지 않았다면
-            if (movementDataSO.JumpTimeCounter <= 0)
+            if (movementDataSO._movementData.JumpTimeCounter <= 0)
             {
-                movementDataSO.IsJumping = false;
+                movementDataSO._movementData.IsJumping = false;
             }
         }
         //땅에 착지했고 점프키를 누르지 않은 상태이면(착지만 한걸로 체크하면 예외상황 발생함)
-        if (movementDataSO.IsGrounded == true && movementDataSO.IsJumping == false)
+        if (movementDataSO._movementData.IsGrounded == true && movementDataSO._movementData.IsJumping == false)
         {
-            jumpCounter = movementDataSO.jumpCounter;
+            jumpCounter = movementDataSO._movementData.jumpCounter;
         }
         //점프키에서 손을 떼면
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            movementDataSO.IsJumping = false;
+            movementDataSO._movementData.IsJumping = false;
         }
     }
     //떨어질 때는 좀 더 강한 중력 적용
@@ -126,12 +126,12 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator SpeedUpIE()
     {
-        float defaultSpeed = movementDataSO.Speed;
-        movementDataSO.Speed += 5f;
-        movementDataSO.IsRunning = true;
+        float defaultSpeed = movementDataSO._movementData.Speed;
+        movementDataSO._movementData.Speed += 5f;
+        movementDataSO._movementData.IsRunning = true;
         yield return new WaitForSeconds(5f);
-        movementDataSO.Speed = defaultSpeed;
-        movementDataSO.IsRunning = false;
+        movementDataSO._movementData.Speed = defaultSpeed;
+        movementDataSO._movementData.IsRunning = false;
     }
 
     //자연스러운 움직임을 위해 플레이어 반전
@@ -141,25 +141,25 @@ public class PlayerMove : MonoBehaviour
         if (moveInput > 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
-            movementDataSO.PlayerDir = 1;
+            movementDataSO._movementData.PlayerDir = 1;
         }
         else if (moveInput < 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
-            movementDataSO.PlayerDir = -1;
+            movementDataSO._movementData.PlayerDir = -1;
         }
     }
     private IEnumerator DashIE()
     {
         Debug.Log("doDash");
-        movementDataSO.IsDash = true;
+        movementDataSO._movementData.IsDash = true;
         float gravity = rigid.gravityScale;
         rigid.gravityScale = 0;
         yield return new WaitForSeconds(0.01f);
         rigid.velocity = Vector2.zero;
         yield return new WaitForSeconds(0.4f); //쿨타임
         rigid.gravityScale = gravity;
-        movementDataSO.IsDash = false;
+        movementDataSO._movementData.IsDash = false;
         isDashOnce = false;
     }
 }
