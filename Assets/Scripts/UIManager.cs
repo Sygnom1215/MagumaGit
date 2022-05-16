@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,9 +20,7 @@ public class UIManager : MonoBehaviour
     {
         // ESC
         if(Input.GetKeyDown(KeyCode.Escape))
-        {
             OpenMenu();
-        }
     }
 
     public void OpenMenu()
@@ -35,5 +35,11 @@ public class UIManager : MonoBehaviour
             menuPenal.SetActive(false);
             isOpenMenu = false;
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("TestMapScene");
+        Time.timeScale = 1;
     }
 }
