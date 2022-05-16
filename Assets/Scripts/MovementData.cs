@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class MovementData : MonoBehaviour
+public class MovementData
 {
     //임시로 public
-    private float gravity = -10f;
+    public float gravity = -10f;
     public float speed = 7f;
-    private float jumpForce = 8f;
-    private float jumpTimeCounter = 1.2f;
-    private float jumpTime = 0.35f;
+    public float jumpForce = 8f;
+    public float jumpTimeCounter = 1.2f;
+    public  float jumpTime = 0.35f;
     public int jumpCounter = 2;
     public int playerDir = -1;
 
-    private bool isGrounded = false;
-    private bool isJumping = false;
+    public bool isGrounded = false;
+    public bool isJumping = false;
     public bool isDash = false;
-    private bool isRunning = false;
+    public bool isRunning = false;
     public bool isCanDash = false;  //대쉬라는 행위가 가능한가
     public bool isCanRunning = false;
 
