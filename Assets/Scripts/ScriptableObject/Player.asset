@@ -12,8 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1443ed2114abda4995aa5a5fe61bf0b, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  speed: 7
-  jumpCounter: 2
-  playerDir: -1
-  isCanDash: 1
-  isCanRunning: 1
+  _movementData:
+    gravity: -10
+    speed: 7
+    jumpForce: 8
+    jumpTimeCounter: 0.09984838
+    jumpTime: 0.35
+    jumpCounter: 2
+    playerDir: -1
+    isGrounded: 1
+    isJumping: 0
+    isDash: 0
+    isRunning: 0
+    isCanDash: 1
+    isCanRunning: 1
