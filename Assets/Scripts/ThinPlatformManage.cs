@@ -15,7 +15,7 @@ public class ThinPlatformManage : MonoBehaviour
     /// <param name="value">0 : 정방향 180:역방향</param>    
     public void SetOffset(float value)
     {
-            effector.rotationalOffset = value;
+        effector.rotationalOffset = value;
     }
 
 }

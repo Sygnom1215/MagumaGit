@@ -10,6 +10,8 @@ public class PlayerMove : MonoBehaviour
 
     private float moveInput;
     public int jumpCounter = 0;
+    private bool isDashOnce = false;
+    //대시를 한 번 했는가
     private Rigidbody2D rigid;
 
     [SerializeField]
@@ -17,33 +19,97 @@ public class PlayerMove : MonoBehaviour
     public float checkRdius;
     public LayerMask whatIsGround;
 
-    //플레이어 바닥에 닿았는지 판정하는 기즈모
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(feetPos.position, checkRdius);
-    }
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-        jumpCounter = movementDataSO.JumpCounter;
+        jumpCounter = movementDataSO._movementData.JumpCounter;
+        TurnPlayer();
     }
     //물리 판정할 땐 fixed update 사용
     private void FixedUpdate()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
-        rigid.velocity = new Vector2(moveInput * movementDataSO.Speed, rigid.velocity.y);
+        rigid.velocity = new Vector2(moveInput * movementDataSO._movementData.Speed, rigid.velocity.y);
+        if (movementDataSO._movementData.IsDash && !isDashOnce)
+        {
+            DoDash();
+        }
     }
 
     private void Update()
     {
         //바닥에 닿았는지 체크하는 원 생성
-        movementDataSO.IsGrounded = Physics2D.OverlapCircle(feetPos.position, checkRdius, whatIsGround);
+        movementDataSO._movementData.IsGrounded = Physics2D.OverlapCircle(feetPos.position, checkRdius, whatIsGround);
         JudgmentInput();
-        TurnPlayer();
         SmoothFalling();
+        TurnPlayer();
+    }
+    public void SpeedUp()
+    {
+        if (movementDataSO._movementData.IsCanRunning && !movementDataSO._movementData.IsRunning)
+        {
+            StartCoroutine(SpeedUpIE());
+        }
+    }
+    public void Dash()
+    {
+        if (movementDataSO._movementData.IsCanDash && !movementDataSO._movementData.IsDash)
+        {
+            StartCoroutine(DashIE());
+        }
+    }
+    private void DoDash()
+    {
+        rigid.AddForce(Vector2.right * 40f * movementDataSO._movementData.PlayerDir, ForceMode2D.Impulse);
+        isDashOnce = true;
     }
 
+
+    //플레이어 바닥에 닿았는지 판정하는 범위의 기즈모
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(feetPos.position, checkRdius);
+    }
+    /// <summary>
+    ///플레이어가 입력한 값과 현재 상태에 따라서 실행할 행동을 정하는 함수
+    /// </summary>
+    private void JudgmentInput()
+    {
+        //만약 점프 키가 눌렸고 점프 가능 횟수가 남아있다면
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCounter > 0)
+        {
+            movementDataSO._movementData.IsJumping = true;
+            jumpCounter--;
+            movementDataSO._movementData.JumpTimeCounter = movementDataSO._movementData.JumpTime;
+            rigid.velocity = Vector2.up * movementDataSO._movementData.JumpForce;
+        }
+        //점프키를 계속 누르는 중이면
+        if (Input.GetKey(KeyCode.Space) && movementDataSO._movementData.IsJumping == true)
+        {
+            //점프 가능한 시간이 남아있다면
+            if (movementDataSO._movementData.JumpTimeCounter > 0)
+            {
+                rigid.velocity = Vector2.up * movementDataSO._movementData.JumpForce;
+                movementDataSO._movementData.JumpTimeCounter -= Time.deltaTime;
+            }
+            //점프 가능한 시간이 남아있지 않았다면
+            if (movementDataSO._movementData.JumpTimeCounter <= 0)
+            {
+                movementDataSO._movementData.IsJumping = false;
+            }
+        }
+        //땅에 착지했고 점프키를 누르지 않은 상태이면(착지만 한걸로 체크하면 예외상황 발생함)
+        if (movementDataSO._movementData.IsGrounded == true && movementDataSO._movementData.IsJumping == false)
+        {
+            jumpCounter = movementDataSO._movementData.jumpCounter;
+        }
+        //점프키에서 손을 떼면
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            movementDataSO._movementData.IsJumping = false;
+        }
+    }
     //떨어질 때는 좀 더 강한 중력 적용
     private void SmoothFalling()
     {
@@ -58,54 +124,15 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-    /// <summary>
-    ///플레이어가 입력한 값과 현재 상태에 따라서 실행할 행동을 정하는 함수
-    /// </summary>
-    private void JudgmentInput()
+    private IEnumerator SpeedUpIE()
     {
-
-        if (Input.GetKeyDown(KeyCode.Space) && movementDataSO.IsGrounded == true && movementDataSO.IsJumping == false)
-        {
-            movementDataSO.IsJumping = true;
-            jumpCounter--;
-            movementDataSO.JumpTimeCounter = movementDataSO.JumpTime;
-            rigid.velocity = Vector2.up * movementDataSO.JumpForce;
-        }
-        if (Input.GetKey(KeyCode.Space) && movementDataSO.IsJumping == true)
-        {
-            if (movementDataSO.JumpTimeCounter > 0)
-            {
-                rigid.velocity = Vector2.up * movementDataSO.JumpForce;
-                movementDataSO.JumpTimeCounter -= Time.deltaTime;
-            }
-            else
-            {
-                movementDataSO.IsJumping = false;
-            }
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            movementDataSO.IsJumping = false;
-        }
+        float defaultSpeed = movementDataSO._movementData.Speed;
+        movementDataSO._movementData.Speed += 5f;
+        movementDataSO._movementData.IsRunning = true;
+        yield return new WaitForSeconds(5f);
+        movementDataSO._movementData.Speed = defaultSpeed;
+        movementDataSO._movementData.IsRunning = false;
     }
-
-    //타일 셀 하나 파괴시켜보는 코드 (예은이가 테스트 한 잔해, 일단 남겨두지만 나중에도 필요 없으면 지우기)
-/*    public Tilemap tilemap;
-    private void OnCollisionEnter2D(Collision2D _col)
-    {
-
-        tilemap = _col.gameObject.GetComponent<Tilemap>();
-        this.tilemap.RefreshAllTiles();
-        int x, y;
-        x = this.tilemap.WorldToCell(_col.transform.position).x;
-        y = this.tilemap.WorldToCell(_col.transform.position).y;
-
-        Vector3Int v3Int = new Vector3Int(x, y, 0);
-
-        this.tilemap.SetTileFlags(v3Int, TileFlags.None);
-        this.tilemap.SetColor(v3Int, (Color.red));
-
-    }*/
 
     //자연스러운 움직임을 위해 플레이어 반전
     public void TurnPlayer()
@@ -114,10 +141,25 @@ public class PlayerMove : MonoBehaviour
         if (moveInput > 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
+            movementDataSO._movementData.PlayerDir = 1;
         }
         else if (moveInput < 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
+            movementDataSO._movementData.PlayerDir = -1;
         }
+    }
+    private IEnumerator DashIE()
+    {
+        Debug.Log("doDash");
+        movementDataSO._movementData.IsDash = true;
+        float gravity = rigid.gravityScale;
+        rigid.gravityScale = 0;
+        yield return new WaitForSeconds(0.01f);
+        rigid.velocity = Vector2.zero;
+        yield return new WaitForSeconds(0.4f); //쿨타임
+        rigid.gravityScale = gravity;
+        movementDataSO._movementData.IsDash = false;
+        isDashOnce = false;
     }
 }

@@ -15,9 +15,14 @@ public class PlayerHp : MonoBehaviour
     private float playerMaxHp = 100;
     [SerializeField]
     private Transform respawnPos;
-
+    private Rigidbody2D rigid;
+    [SerializeField]
+    private MovementDataSO movementDataSO;
     private bool _isDead = false;
-
+    private void Start()
+    {
+        rigid = GetComponent<Rigidbody2D>();
+    }
     public void HpDecrease(float decrease)
     {
         playerHp -= decrease;
@@ -55,6 +60,7 @@ public class PlayerHp : MonoBehaviour
     public void Respawn()
     {
         playerHp = playerMaxHp;
+        rigid.gravityScale = movementDataSO._movementData.Gravity;
         hpImage.fillAmount = playerHp / playerMaxHp;
         transform.position = respawnPos.position;
         gameObject.SetActive(true);
