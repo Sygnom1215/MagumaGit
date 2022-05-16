@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064500291}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.34, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 780907868418675717}
@@ -481,7 +481,7 @@ MonoBehaviour:
   playerHp: 100
   playerMaxHp: 100
   respawnPos: {fileID: 0}
-  movementDataSO: {fileID: 0}
+  movementDataSO: {fileID: 11400000, guid: 34ed4697152d0374f95a576fae678211, type: 2}
 --- !u!114 &780907868418675736
 MonoBehaviour:
   m_ObjectHideFlags: 0

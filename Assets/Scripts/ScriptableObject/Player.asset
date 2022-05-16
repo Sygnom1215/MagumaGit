@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   _movementData:
-    gravity: -10
+    gravity: 3.5
     speed: 7
     jumpForce: 8
-    jumpTimeCounter: 0.09984838
+    jumpTimeCounter: -0.00128842
     jumpTime: 0.35
     jumpCounter: 2
-    playerDir: -1
+    playerDir: 1
     isGrounded: 1
     isJumping: 0
     isDash: 0

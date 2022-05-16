@@ -6,7 +6,7 @@ using UnityEngine;
 public class MovementData
 {
     //юс╫ц╥н public
-    public float gravity = -10f;
+    public float gravity = 10f;
     public float speed = 7f;
     public float jumpForce = 8f;
     public float jumpTimeCounter = 1.2f;
