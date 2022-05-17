@@ -8,4 +8,22 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Stages/0_Tuto.unity
+    guid: 1f429ba445f66e343bc5a3383268e45c
+  - enabled: 1
+    path: Assets/Scenes/Stages/1_Forest-1.unity
+    guid: da689dd285bf39c478c283239b600930
+  - enabled: 1
+    path: Assets/Scenes/Stages/1_Forest-2.unity
+    guid: bc4a34c94de627a4594468f31365019c
+  - enabled: 1
+    path: Assets/Scenes/Stages/2_Tree.unity
+    guid: f1d50e4b411575142a47a231377c2e77
+  - enabled: 1
+    path: Assets/Scenes/Stages/3_Lake.unity
+    guid: 737248ce813d97543b6c8d2a5f90fe40
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 743579fbc49a3c4449884c904b944443
   m_configObjects: {}
