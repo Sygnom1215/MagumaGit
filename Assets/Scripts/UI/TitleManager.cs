@@ -15,6 +15,8 @@ public class TitleManager : MonoBehaviour
 
     private bool isOpenSetsPanel = false;
 
+
+
     void Start()
     {
         titleCanvas.SetActive(true); // Title

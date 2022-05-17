@@ -13,6 +13,7 @@ public class Potal : MonoBehaviour
         Tree,
         Lake
     };
+
     [SerializeField]
     private string dirScene; //유니티에서 실제 표시되는 씬의 이름 ex) 0_Tuto
     [SerializeField]
@@ -21,5 +22,10 @@ public class Potal : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         LoadingManager.LoadScene(dirScene,((int)sceneType));
+    }
+
+    public void SelectStage()
+    {
+        LoadingManager.LoadScene(dirScene, ((int)sceneType));
     }
 }
