@@ -59,11 +59,12 @@ public class PlayerHp : MonoBehaviour
 
     public void Respawn()
     {
-        playerHp = playerMaxHp;
-        rigid.gravityScale = movementDataSO._movementData.Gravity;
-        hpImage.fillAmount = playerHp / playerMaxHp;
-        transform.position = respawnPos.position;
-        gameObject.SetActive(true);
-        CMCam.SetActive(true);
+        //playerHp = playerMaxHp;
+        //rigid.gravityScale = movementDataSO._movementData.Gravity;
+        //hpImage.fillAmount = playerHp / playerMaxHp;
+        //transform.position = respawnPos.position;
+        //gameObject.SetActive(true);
+        //CMCam.SetActive(true);
+        UIManager.Instance.Restart();
     }
 }

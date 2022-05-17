@@ -6,11 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance;
     [SerializeField]
     private GameObject menuPenal;
 
     private bool isOpenMenu = false;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         menuPenal.SetActive(false);
@@ -39,7 +44,8 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
-        //SceneManager.LoadScene("TestMapScene"); // 자신이 있는 Scene만 Reroad 되는 코드로 변경할 것.
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name); // 자신이 있는 Scene만 Reroad 되는 코드로 변경할 것.
         Debug.Log("Restart");
         Time.timeScale = 1;
     }
