@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ec4c048806ee64399742bd959a314a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuPenal: {fileID: 1624528462}
+  menuPanel: {fileID: 1624528462}
 --- !u!4 &193022075
 Transform:
   m_ObjectHideFlags: 0
