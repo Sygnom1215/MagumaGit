@@ -39,7 +39,8 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("TestMapScene");
+        //SceneManager.LoadScene("TestMapScene"); // 자신이 있는 Scene만 Reroad 되는 코드로 변경할 것.
+        Debug.Log("Restart");
         Time.timeScale = 1;
     }
 }

@@ -39,7 +39,7 @@ public class HpItem : MonoBehaviour
         }
         else if(col.tag == "Water")
         {
-            playerHp.HpDecrease(0.01f);
+            playerHp.HpDecrease(1f);
         }
     }
 
