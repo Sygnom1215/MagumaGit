@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     [SerializeField]
-    private GameObject menuPenal;
+    private GameObject menuPanel;
 
     private bool isOpenMenu = false;
 
@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     }
     void Start()
     {
-        menuPenal.SetActive(false);
+        menuPanel.SetActive(false);
     }
 
     void Update()
@@ -32,12 +32,12 @@ public class UIManager : MonoBehaviour
     {
         if (isOpenMenu == false)
         {
-            menuPenal.SetActive(true);
+            menuPanel.SetActive(true);
             isOpenMenu = true;
         }
         else if (isOpenMenu == true)
         {
-            menuPenal.SetActive(false);
+            menuPanel.SetActive(false);
             isOpenMenu = false;
         }
     }
@@ -49,4 +49,6 @@ public class UIManager : MonoBehaviour
         Debug.Log("Restart");
         Time.timeScale = 1;
     }
+
+
 }
