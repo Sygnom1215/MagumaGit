@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager Instance;
 
     [SerializeField] private TextManager textManager = null;
@@ -127,7 +126,6 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
     }
-
 
     public IEnumerator StopCroutine()
     {

@@ -21,13 +21,13 @@ public class HpItem : MonoBehaviour
         {
 
             playerHp.HpRecovery(10f);
-            Destroy(col.gameObject);
+            col.gameObject.SetActive(false);
         }
         else if (col.tag == "Trickle")
         {
 
             playerHp.HpDecrease(10f);
-            Destroy(col.gameObject);
+            col.gameObject.SetActive(false);
         }
     }
 
