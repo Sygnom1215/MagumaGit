@@ -29,10 +29,14 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
-        rigid.velocity = new Vector2(moveInput * movementDataSO._movementData.Speed, rigid.velocity.y);
         if (movementDataSO._movementData.IsDash && !isDashOnce)
         {
-            DoDash();
+            rigid.velocity += Vector2.right * movementDataSO._movementData.PlayerDir * 7f;
+
+        }
+        else
+        {
+            rigid.velocity = new Vector2(moveInput * movementDataSO._movementData.Speed, rigid.velocity.y);
         }
     }
 
@@ -58,12 +62,6 @@ public class PlayerMove : MonoBehaviour
             StartCoroutine(DashIE());
         }
     }
-    private void DoDash()
-    {
-        rigid.AddForce(Vector2.right * 40f * movementDataSO._movementData.PlayerDir, ForceMode2D.Impulse);
-        isDashOnce = true;
-    }
-
 
     //플레이어 바닥에 닿았는지 판정하는 범위의 기즈모
     private void OnDrawGizmos()
@@ -126,11 +124,13 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator SpeedUpIE()
     {
+        Debug.Log("SpeedUp");
         float defaultSpeed = movementDataSO._movementData.Speed;
         movementDataSO._movementData.Speed += 5f;
         movementDataSO._movementData.IsRunning = true;
         yield return new WaitForSeconds(5f);
         movementDataSO._movementData.Speed = defaultSpeed;
+        yield return new WaitForSeconds(15f);
         movementDataSO._movementData.IsRunning = false;
     }
 
@@ -152,14 +152,15 @@ public class PlayerMove : MonoBehaviour
     private IEnumerator DashIE()
     {
         Debug.Log("doDash");
-        movementDataSO._movementData.IsDash = true;
         float gravity = rigid.gravityScale;
         rigid.gravityScale = 0;
-        yield return new WaitForSeconds(0.01f);
+        movementDataSO._movementData.IsDash = true;
+        yield return new WaitForSeconds(0.1f);
+
         rigid.velocity = Vector2.zero;
-        yield return new WaitForSeconds(0.4f); //쿨타임
-        rigid.gravityScale = gravity;
         movementDataSO._movementData.IsDash = false;
+        rigid.gravityScale = gravity;
+        yield return new WaitForSeconds(0.4f); //쿨타임
         isDashOnce = false;
     }
 }
