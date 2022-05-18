@@ -260,6 +260,10 @@ PrefabInstance:
       value: UI Manager
       objectReference: {fileID: 0}
     - target: {fileID: 5552521730290567238, guid: e6e8d6fe7bfc8e440852c462dd6be272, type: 3}
+      propertyPath: menuPanel
+      value: 
+      objectReference: {fileID: 1567086041}
+    - target: {fileID: 5552521730290567238, guid: e6e8d6fe7bfc8e440852c462dd6be272, type: 3}
       propertyPath: menuPenal
       value: 
       objectReference: {fileID: 1567086041}

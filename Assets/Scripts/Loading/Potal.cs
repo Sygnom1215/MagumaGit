@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Potal : MonoBehaviour
 {
@@ -18,7 +19,9 @@ public class Potal : MonoBehaviour
     private string dirScene; //유니티에서 실제 표시되는 씬의 이름 ex) 0_Tuto
     [SerializeField]
     private SCENETYPE sceneType; //이름 표시 용 Enum 값
-    
+    //[SerializeField]
+    //private Button[] potalBtn;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         LoadingManager.LoadScene(dirScene,((int)sceneType));
