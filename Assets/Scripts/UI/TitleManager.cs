@@ -6,36 +6,59 @@ public class TitleManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject setPanel;
+    [SerializeField]
+    private GameObject potals;
+    [SerializeField]
+    private GameObject titleCanvas;
+    [SerializeField]
+    private GameObject canvas;
 
-    private bool isOpenSets = false;
+    private bool isOpenSetsPanel = false;
+
+
 
     void Start()
     {
-        setPanel.SetActive(false);
+        titleCanvas.SetActive(true); // Title
+
+        setPanel.SetActive(false); // 설정창
+        potals.SetActive(false); // 포탈
+        canvas.SetActive(false); // BackButton
     }
 
-    void Update()
+    public void PlayButton()
     {
-        
+            potals.SetActive(true);
+            canvas.SetActive(true);
+            
+            titleCanvas.SetActive(false);
+    }
+
+    public void BackButton()
+    {
+        canvas.SetActive(false);
+        potals.SetActive(false);
+
+        titleCanvas.SetActive(true);
     }
     
+
+
+
+    // Title관련
     public void SetButton()
     {
-        if(isOpenSets == false)
+        if(isOpenSetsPanel == false)
         {
             setPanel.SetActive(true);
-            isOpenSets = true;
-        }
-        else
-        {
-            return;
+            isOpenSetsPanel = true;
         }
     }
 
     public void QuitButton()
     {
         setPanel.SetActive(false);
-        isOpenSets = false;
+        isOpenSetsPanel = false;
     }
 
     public void ExitGame()
