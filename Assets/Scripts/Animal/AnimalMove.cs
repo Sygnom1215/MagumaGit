@@ -5,16 +5,10 @@ using UnityEngine;
 public class AnimalMove : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 10f;
-
-    private Rigidbody2D rigid;
-    private void Awake()
-    {
-        rigid = GetComponent<Rigidbody2D>();
-    }
+    private float speed = 3f;
     private void Update()
     {
-        rigid.velocity += Vector2.right * speed * Time.deltaTime;
+        transform.Translate(Vector3.right * speed * Time.deltaTime);
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
