@@ -9,6 +9,7 @@ TagManager:
   - Water
   - Trickle
   - Deadzone
+  - DownAbleTile
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - NormalGround
   - Burn
-  - 
+  - Player
   - 
   - 
   - 

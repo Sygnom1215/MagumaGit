@@ -5,14 +5,32 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     [SerializeField]
-    private Vector2 nearCheckPos;
-    [SerializeField]
-    private Vector2 boxSize;
+    [Range(0f,3f)]
+    private float nearCheckRangth;
     [SerializeField]
     private LayerMask playerLayer;
-    private bool isNear = false;
-    private void Check()
+    public bool isNear = false;
+
+    private void Update()
     {
-        isNear = Physics2D.OverlapBox(nearCheckPos, boxSize, 0f,playerLayer);
+        TalkRangeCheck();   
     }
+    private void OnDrawGizmos()
+    {
+        if(isNear)
+        {
+            Gizmos.color = Color.blue;
+        }
+        else
+        {
+            Gizmos.color = Color.red;
+        }
+        Gizmos.DrawWireCube(transform.position, new Vector3(transform.position.x + nearCheckRangth, transform.position.y, 0f));
+    }
+    private void TalkRangeCheck()
+    {
+        isNear = Physics2D.OverlapBox(transform.position, new Vector2(transform.position.x + nearCheckRangth, transform.position.y + nearCheckRangth), 0f,playerLayer);
+    }
+
+
 }
