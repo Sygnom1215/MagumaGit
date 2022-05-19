@@ -34,11 +34,13 @@ public class UIManager : MonoBehaviour
         {
             menuPanel.SetActive(true);
             isOpenMenu = true;
+            Time.timeScale = 0;
         }
         else if (isOpenMenu == true)
         {
             menuPanel.SetActive(false);
             isOpenMenu = false;
+            Time.timeScale = 1;
         }
     }
 

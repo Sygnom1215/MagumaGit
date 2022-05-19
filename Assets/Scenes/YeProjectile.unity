@@ -617,6 +617,10 @@ PrefabInstance:
       value: UI Manager
       objectReference: {fileID: 0}
     - target: {fileID: 5552521730290567238, guid: e6e8d6fe7bfc8e440852c462dd6be272, type: 3}
+      propertyPath: menuPanel
+      value: 
+      objectReference: {fileID: 1449018243}
+    - target: {fileID: 5552521730290567238, guid: e6e8d6fe7bfc8e440852c462dd6be272, type: 3}
       propertyPath: menuPenal
       value: 
       objectReference: {fileID: 1449018243}
@@ -1010,22 +1014,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3337130308814344095, guid: 56122ef07f5d20a4cb9492468d29727d, type: 3}
+    - target: {fileID: 604030411849079726, guid: 56122ef07f5d20a4cb9492468d29727d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2126466677}
-    - target: {fileID: 3337130308814344095, guid: 56122ef07f5d20a4cb9492468d29727d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenMenu
+    - target: {fileID: 3337130308396265483, guid: 56122ef07f5d20a4cb9492468d29727d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3337130309028063278, guid: 56122ef07f5d20a4cb9492468d29727d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2126466677}
-    - target: {fileID: 3337130309028063278, guid: 56122ef07f5d20a4cb9492468d29727d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Restart
-      objectReference: {fileID: 0}
     - target: {fileID: 3337130309187489728, guid: 56122ef07f5d20a4cb9492468d29727d, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1118,10 +1118,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2126466677}
-    - target: {fileID: 3337130309757868172, guid: 56122ef07f5d20a4cb9492468d29727d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenMenu
-      objectReference: {fileID: 0}
+    - target: {fileID: 7502719435450460664, guid: 56122ef07f5d20a4cb9492468d29727d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2126466677}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56122ef07f5d20a4cb9492468d29727d, type: 3}
 --- !u!1 &992283654
