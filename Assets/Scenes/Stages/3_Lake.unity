@@ -3791,7 +3791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 780907868418675717, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 780907868418675717, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3799,7 +3799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 780907868418675717, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 780907868418675717, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3811,27 +3811,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 780907868418675717, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 780907868418675717, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnDownPlatform.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnJumpPlatform.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnDownPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnJumpPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: OnDownPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3842,55 +3826,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2110783287}
     - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnDownPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnJumpPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: OnCameraMoveKeyCut.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 682785956}
     - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnDownPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetOffset
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnJumpPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetOffset
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: OnCameraMoveKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 682785956}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnDownPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ThinPlatformManage, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnJumpPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ThinPlatformManage, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnDownPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnDownPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: OnJumpPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 780907868418675743, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 780907868418675743, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7031619472998700552, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
@@ -4041,7 +3985,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 130, y: 1}
+  m_Size: {x: 150, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &2006858764
 Transform:
