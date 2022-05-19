@@ -24,6 +24,7 @@ public class PlayerMove : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         jumpCounter = movementDataSO._movementData.JumpCounter;
         TurnPlayer();
+
     }
     //물리 판정할 땐 fixed update 사용
     private void FixedUpdate()
@@ -34,7 +35,7 @@ public class PlayerMove : MonoBehaviour
             rigid.velocity += Vector2.right * movementDataSO._movementData.PlayerDir * 7f;
 
         }
-        else
+        else if (moveInput != 0)
         {
             rigid.velocity = new Vector2(moveInput * movementDataSO._movementData.Speed, rigid.velocity.y);
         }

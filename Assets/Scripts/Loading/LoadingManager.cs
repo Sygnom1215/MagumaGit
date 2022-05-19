@@ -38,7 +38,7 @@ public class LoadingManager : MonoBehaviour
         {
             yield return null;
             Debug.Log(op.progress);
-            if (op.progress < 0.9f)
+            if (op.progress <= 0.9f)
             {
                 sceneName.text = sceneNameDataSO.SceneName[currentScene];
                 yield return new WaitForSeconds(2f);

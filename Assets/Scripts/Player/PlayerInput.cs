@@ -12,6 +12,11 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent OnDownPlatform;
     public UnityEvent OnRunningKeyPress;
     public UnityEvent OnDashKeyPress;
+
+    [SerializeField]
+    private PlayerAnimation playerAnimation;
+    [SerializeField]
+    private MovementDataSO movementDataSO;
     void Update()
     {
         GetCamaraMoveInput(); //카메라 움직임 W / Up Arrow
@@ -26,11 +31,20 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
             OnVelocityChange?.Invoke();
+            if (!movementDataSO._movementData.IsJumping)
+            {
+                playerAnimation.SetBool(true);
+            }
         }
+        else
+        {
+            playerAnimation.SetBool(false);
+        }
+
     }
     private void GetJumpPlatformInput()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             OnJumpPlatform?.Invoke();
         }
@@ -40,7 +54,7 @@ public class PlayerInput : MonoBehaviour
     /// </summary>
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             OnDownPlatform?.Invoke();
         }
@@ -58,14 +72,14 @@ public class PlayerInput : MonoBehaviour
     }
     private void GetRunningInput()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             OnRunningKeyPress?.Invoke();
         }
     }
     private void GetDashInput()
     {
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             OnDashKeyPress?.Invoke();
         }
