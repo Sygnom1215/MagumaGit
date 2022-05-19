@@ -9,6 +9,8 @@ TagManager:
   - Water
   - Trickle
   - Deadzone
+  - DownAbleTile
+  - AnimalZone
   layers:
   - Default
   - TransparentFX
