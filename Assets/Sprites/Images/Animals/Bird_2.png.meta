@@ -1,43 +1,31 @@
 fileFormatVersion: 2
-guid: ec0a1e82fd159ba44b1d7410e54db71e
+guid: ccb3079fdc1da404d9240cce82742422
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8520064103483048057
-    second: Bear_1_0
+      213: -2501666542198171289
+    second: Bird_2_0
   - first:
-      213: 7764564913261462422
-    second: Bear_1_1
+      213: 2568758331156856800
+    second: Bird_2_1
   - first:
-      213: 3561561280087997396
-    second: Bear_1_2
+      213: 6944070309081704532
+    second: Bird_2_2
   - first:
-      213: 3651539658944540052
-    second: Bear_1_3
+      213: 5133050034924692635
+    second: Bird_2_3
   - first:
-      213: 1406261528469207325
-    second: Bear_1_4
+      213: -8553248157169460052
+    second: Bird_2_4
   - first:
-      213: -4847025552867789434
-    second: Bear_1_5
+      213: 5423067354229236913
+    second: Bird_2_5
   - first:
-      213: 1023435254374554198
-    second: Bear_1_6
+      213: -1696793293169065413
+    second: Bird_2_6
   - first:
-      213: 208826802418531507
-    second: Bear_1_7
-  - first:
-      213: 7090749319016657122
-    second: Bear_1_8
-  - first:
-      213: 1800732113832483011
-    second: Bear_1_9
-  - first:
-      213: 3596447830487976185
-    second: Bear_1_10
-  - first:
-      213: -693365845099474682
-    second: Bear_1_11
+      213: -3471818113758807014
+    second: Bird_2_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -68,7 +56,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -139,175 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bear_1_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78ff550d6d6a2c980800000000000000
-      internalID: -8520064103483048057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bear_1_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 693496276a641cb60800000000000000
-      internalID: 7764564913261462422
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bear_1_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4db3e614d153d6130800000000000000
-      internalID: 3561561280087997396
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bear_1_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49de3ae19ffdca230800000000000000
-      internalID: 3651539658944540052
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bear_1_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1974b1d86b048310800000000000000
-      internalID: 1406261528469207325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bear_1_5
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 685f218b0f7ebbcb0800000000000000
-      internalID: -4847025552867789434
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bear_1_6
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65a5b9301f8f33e00800000000000000
-      internalID: 1023435254374554198
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bear_1_7
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3bcbcb1ded6e5e200800000000000000
-      internalID: 208826802418531507
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bear_1_8
+      name: Bird_2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -321,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e0b45fefe6676260800000000000000
-      internalID: 7090749319016657122
+      spriteID: 7695cc5c88b484dd0800000000000000
+      internalID: -2501666542198171289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bear_1_9
+      name: Bird_2_1
       rect:
         serializedVersion: 2
         x: 16
@@ -342,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c89f9c115c7df810800000000000000
-      internalID: 1800732113832483011
+      spriteID: 0effd62a71016a320800000000000000
+      internalID: 2568758331156856800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bear_1_10
+      name: Bird_2_2
       rect:
         serializedVersion: 2
         x: 32
@@ -363,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f8c57d3f3629e130800000000000000
-      internalID: 3596447830487976185
+      spriteID: 458e624a72b4e5060800000000000000
+      internalID: 6944070309081704532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bear_1_11
+      name: Bird_2_3
       rect:
         serializedVersion: 2
         x: 48
@@ -384,8 +204,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 601157fff6ba066f0800000000000000
-      internalID: -693365845099474682
+      spriteID: b942ef98fc14c3740800000000000000
+      internalID: 5133050034924692635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bird_2_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cac562c3e12cc4980800000000000000
+      internalID: -8553248157169460052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bird_2_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b4e9d9a60b924b40800000000000000
+      internalID: 5423067354229236913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bird_2_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3284676d77c378e0800000000000000
+      internalID: -1696793293169065413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bird_2_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1cb3ace1df91dfc0800000000000000
+      internalID: -3471818113758807014
       vertices: []
       indices: 
       edges: []
