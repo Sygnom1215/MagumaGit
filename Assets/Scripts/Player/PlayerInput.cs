@@ -12,6 +12,7 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent OnDownPlatform;
     public UnityEvent OnRunningKeyPress;
     public UnityEvent OnDashKeyPress;
+    public UnityEvent OnTeleportingKeyPress;
 
     [SerializeField]
     private PlayerAnimation playerAnimation;
@@ -24,6 +25,7 @@ public class PlayerInput : MonoBehaviour
         GetJumpPlatformInput(); //얇은 플랫폼 점프해서 올라감
         GetRunningInput(); //일반 공격 감지
         GetDashInput();
+        GetTeleportInput();
     }
 
     private void GetMoveInput()
@@ -82,6 +84,13 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             OnDashKeyPress?.Invoke();
+        }
+    }
+    private void GetTeleportInput()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            OnTeleportingKeyPress?.Invoke();
         }
     }
 }

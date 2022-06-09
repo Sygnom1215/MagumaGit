@@ -3185,6 +3185,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnTeleportingKeyPress.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: OnDownPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 281495908}
@@ -3197,9 +3201,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1257964847}
     - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnTeleportingKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: OnCameraMoveKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1257964847}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnTeleportingKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 455453697}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnTeleportingKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnTeleportingKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheckFireOrTeleport
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnTeleportingKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerTeleport, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnTeleportingKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 780907868418675743, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: m_Name
       value: Player

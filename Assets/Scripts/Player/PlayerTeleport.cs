@@ -22,17 +22,17 @@ public class PlayerTeleport : MonoBehaviour
     void Update()
     {
         CheckDistance();
-    
-        if (Input.GetKeyDown(KeyCode.H))
+    }
+
+    public void CheckFireOrTeleport()
+    {
+        if (!isFire && movementDataSO._movementData.IsGrounded)
         {
-            if (!isFire && movementDataSO._movementData.IsGrounded)
-            {
-                Fire();
-            }
-            else if (isFire)
-            {
-                Teleport();
-            }
+            SetFire();
+        }
+        else if (isFire)
+        {
+            Teleport();
         }
     }
 
@@ -43,7 +43,7 @@ public class PlayerTeleport : MonoBehaviour
         fireObject.SetActive(false);
     }
 
-    private void Fire()
+    private void SetFire()
     {
         fireObject.transform.position = transform.position;
         isFire = true;

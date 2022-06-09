@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 154897983}
   - component: {fileID: 154897977}
   - component: {fileID: 2705330348476380576}
+  - component: {fileID: 455453697}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -577,6 +578,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnTeleportingKeyPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 455453697}
+        m_TargetAssemblyTypeName: PlayerTeleport, Assembly-CSharp
+        m_MethodName: CheckFireOrTeleport
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   playerAnimation: {fileID: 154897977}
   movementDataSO: {fileID: 11400000, guid: 34ed4697152d0374f95a576fae678211, type: 2}
 --- !u!114 &4101108534105662699
@@ -674,3 +690,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowObject: {fileID: 1294330447}
   isGlow: 0
+--- !u!114 &455453697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780907868418675743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813f4f8273cbde045b50ce45fc3c2986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementDataSO: {fileID: 11400000, guid: 34ed4697152d0374f95a576fae678211, type: 2}
+  firePrefab: {fileID: 4017145729318997197, guid: 1506989a13863f24385a8c192229f493, type: 3}
+  teleportDistance: 10
