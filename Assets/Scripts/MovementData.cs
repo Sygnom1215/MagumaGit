@@ -6,6 +6,7 @@ using UnityEngine;
 public class MovementData
 {
     //임시로 public
+    private float moveInput;
     public float gravity = 10f;
     public float speed = 7f;
     public float jumpForce = 8f;
@@ -16,12 +17,17 @@ public class MovementData
 
     public bool isGrounded = false;
     public bool isJumping = false;
+    //실제 이 행동을 하고 있는가
     public bool isDash = false;
     public bool isRunning = false;
-    public bool isCanDash = false;  //대쉬라는 행위가 가능한가
+    public bool isDive = false;
+    //이 행동을 사용할 수 있는가
+    public bool isCanDash = false;
     public bool isCanRunning = false;
+    public bool isCanDive = false;
 
     #region 겟터와 셋터
+    public float MoveInput { get => moveInput; set => moveInput = value; }
     public float Gravity { get => gravity; set => gravity = value; }
     public float Speed { get { return speed; } set { speed = value; } }
     public float JumpForce { get { return jumpForce; } set { jumpForce = value; } }
@@ -34,7 +40,11 @@ public class MovementData
     public bool IsJumping { get { return isJumping; } set { isJumping = value; } }
     public bool IsDash { get { return isDash; } set { isDash = value; } }
     public bool IsRunning { get { return isRunning; } set { isRunning = value; } }
+    public bool IsDive { get { return isDive; } set { isDive = value; } }
+   
+
     public bool IsCanDash { get { return isCanDash; } set { isCanDash = value; } }
     public bool IsCanRunning { get { return isCanRunning; } set { isCanRunning = value; } }
+    public bool IsCanDive { get { return isCanDive; } set { isCanDive = value; } }
     #endregion
 }

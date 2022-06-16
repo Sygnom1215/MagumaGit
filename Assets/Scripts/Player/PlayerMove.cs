@@ -8,10 +8,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private MovementDataSO movementDataSO;
 
-    private float moveInput;
     public int jumpCounter = 0;
-    private bool isDashOnce = false;
     //대시를 한 번 했는가
+    private bool isDashOnce = false;
     private Rigidbody2D rigid;
 
     [SerializeField]
@@ -19,25 +18,28 @@ public class PlayerMove : MonoBehaviour
     public float checkRdius;
     public LayerMask whatIsGround;
 
+    private void Awake()
+    {
+        movementDataSO._movementData.IsRunning = false;
+    }
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         jumpCounter = movementDataSO._movementData.JumpCounter;
         TurnPlayer();
-
     }
     //물리 판정할 땐 fixed update 사용
     private void FixedUpdate()
     {
-        moveInput = Input.GetAxisRaw("Horizontal");
+        movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
         if (movementDataSO._movementData.IsDash && !isDashOnce)
         {
             rigid.velocity += Vector2.right * movementDataSO._movementData.PlayerDir * 7f;
 
         }
-        else if (moveInput != 0)
+        else if (movementDataSO._movementData.MoveInput != 0)
         {
-            rigid.velocity = new Vector2(moveInput * movementDataSO._movementData.Speed, rigid.velocity.y);
+            rigid.velocity = new Vector2(movementDataSO._movementData.MoveInput * movementDataSO._movementData.Speed, rigid.velocity.y);
         }
     }
 
@@ -139,12 +141,12 @@ public class PlayerMove : MonoBehaviour
     public void TurnPlayer()
     {
         //turn
-        if (moveInput > 0)
+        if (movementDataSO._movementData.MoveInput > 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
             movementDataSO._movementData.PlayerDir = 1;
         }
-        else if (moveInput < 0)
+        else if (movementDataSO._movementData.MoveInput < 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
             movementDataSO._movementData.PlayerDir = -1;

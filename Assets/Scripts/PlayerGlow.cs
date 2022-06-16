@@ -9,11 +9,10 @@ public class PlayerGlow : MonoBehaviour
     public bool isGlow = false;
     private void Update()
     {
-        if (isGlow)
-            Glow();
+        Glow();
     }
     private void Glow()
     {
-        glowObject.SetActive(true);   
+        glowObject.SetActive(isGlow);
     }
 }
