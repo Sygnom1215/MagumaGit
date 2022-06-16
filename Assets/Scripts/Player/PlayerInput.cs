@@ -13,11 +13,14 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent OnRunningKeyPress;
     public UnityEvent OnDashKeyPress;
     public UnityEvent OnTeleportingKeyPress;
+    public UnityEvent OnUseItemKeyPress;
 
     [SerializeField]
     private PlayerAnimation playerAnimation;
     [SerializeField]
     private MovementDataSO movementDataSO;
+
+
     void Update()
     {
         GetCamaraMoveInput(); //카메라 움직임 W / Up Arrow
@@ -26,6 +29,15 @@ public class PlayerInput : MonoBehaviour
         GetRunningInput(); //일반 공격 감지
         GetDashInput();
         GetTeleportInput();
+        GetUseItemInput();
+    }
+
+    private void GetUseItemInput()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            OnUseItemKeyPress?.Invoke();
+        }
     }
 
     private void GetMoveInput()
