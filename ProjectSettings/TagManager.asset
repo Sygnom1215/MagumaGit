@@ -12,6 +12,7 @@ TagManager:
   - DownAbleTile
   - AnimalZone
   - SaveItem
+  - Wall
   layers:
   - Default
   - TransparentFX

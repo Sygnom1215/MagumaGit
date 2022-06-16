@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent OnDashKeyPress;
     public UnityEvent OnTeleportingKeyPress;
     public UnityEvent OnUseItemKeyPress;
+    public UnityEvent OnUseOilBarrierKeyPress;
 
     [SerializeField]
     private PlayerAnimation playerAnimation;
@@ -30,6 +31,15 @@ public class PlayerInput : MonoBehaviour
         GetDashInput();
         GetTeleportInput();
         GetUseItemInput();
+        GetUseOilBarrier();
+    }
+
+    private void GetUseOilBarrier()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            OnUseOilBarrierKeyPress?.Invoke();
+        }
     }
 
     private void GetUseItemInput()
