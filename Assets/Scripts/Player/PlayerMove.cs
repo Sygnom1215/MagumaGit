@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
     //대시를 한 번 했는가
     private bool isDashOnce = false;
     private Rigidbody2D rigid;
+    private HpItem hpItem;
 
     [SerializeField]
     private Transform feetPos;
@@ -25,13 +26,16 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        hpItem = GetComponentInChildren<HpItem>();
         jumpCounter = movementDataSO._movementData.JumpCounter;
         TurnPlayer();
     }
     //물리 판정할 땐 fixed update 사용
     private void FixedUpdate()
     {
-        movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
+        ///movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
+        if (hpItem.isSliding == true) return;
+        moveInput = Input.GetAxisRaw("Horizontal");
         if (movementDataSO._movementData.IsDash && !isDashOnce)
         {
             rigid.velocity += Vector2.right * movementDataSO._movementData.PlayerDir * 7f;
@@ -45,6 +49,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        if (hpItem.isSliding == true) return;
         //바닥에 닿았는지 체크하는 원 생성
         movementDataSO._movementData.IsGrounded = Physics2D.OverlapCircle(feetPos.position, checkRdius, whatIsGround);
         JudgmentInput();

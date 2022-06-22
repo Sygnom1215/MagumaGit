@@ -12,11 +12,16 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent OnDownPlatform;
     public UnityEvent OnRunningKeyPress;
     public UnityEvent OnDashKeyPress;
+    public UnityEvent OnTeleportingKeyPress;
+    public UnityEvent OnUseItemKeyPress;
+    public UnityEvent OnUseOilBarrierKeyPress;
 
     [SerializeField]
     private PlayerAnimation playerAnimation;
     [SerializeField]
     private MovementDataSO movementDataSO;
+
+
     void Update()
     {
         GetCamaraMoveInput(); //카메라 움직임 W / Up Arrow
@@ -24,6 +29,25 @@ public class PlayerInput : MonoBehaviour
         GetJumpPlatformInput(); //얇은 플랫폼 점프해서 올라감
         GetRunningInput(); //일반 공격 감지
         GetDashInput();
+        GetTeleportInput();
+        GetUseItemInput();
+        GetUseOilBarrier();
+    }
+
+    private void GetUseOilBarrier()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            OnUseOilBarrierKeyPress?.Invoke();
+        }
+    }
+
+    private void GetUseItemInput()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            OnUseItemKeyPress?.Invoke();
+        }
     }
 
     private void GetMoveInput()
@@ -82,6 +106,13 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             OnDashKeyPress?.Invoke();
+        }
+    }
+    private void GetTeleportInput()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            OnTeleportingKeyPress?.Invoke();
         }
     }
 }
