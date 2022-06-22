@@ -33,9 +33,9 @@ public class PlayerMove : MonoBehaviour
     //물리 판정할 땐 fixed update 사용
     private void FixedUpdate()
     {
-        ///movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
+        //movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
         if (hpItem.isSliding == true) return;
-        moveInput = Input.GetAxisRaw("Horizontal");
+        movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
         if (movementDataSO._movementData.IsDash && !isDashOnce)
         {
             rigid.velocity += Vector2.right * movementDataSO._movementData.PlayerDir * 7f;
@@ -65,6 +65,7 @@ public class PlayerMove : MonoBehaviour
     }
     public void Dash()
     {
+        if (hpItem.isSliding == true) return;
         if (movementDataSO._movementData.IsCanDash && !movementDataSO._movementData.IsDash)
         {
             StartCoroutine(DashIE());
