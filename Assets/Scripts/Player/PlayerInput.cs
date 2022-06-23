@@ -15,12 +15,19 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent OnTeleportingKeyPress;
     public UnityEvent OnUseItemKeyPress;
     public UnityEvent OnUseOilBarrierKeyPress;
+    public UnityEvent OnConversationPress;
 
     [SerializeField]
     private PlayerAnimation playerAnimation;
     [SerializeField]
     private MovementDataSO movementDataSO;
 
+    private PlayerConversation playerCon;
+
+    private void Awake()
+    {
+        playerCon = GetComponent<PlayerConversation>();
+    }
 
     void Update()
     {
@@ -31,10 +38,22 @@ public class PlayerInput : MonoBehaviour
         GetDashInput();
         GetTeleportInput();
         GetUseItemInput();
-        GetUseOilBarrier();
+        GetUseOilBarrierInput();
+        GetConversationInput();
     }
 
-    private void GetUseOilBarrier()
+    private void GetConversationInput()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if(playerCon.isCanConversation == true)
+            {
+                OnConversationPress?.Invoke();
+            }
+        }
+    }
+
+    private void GetUseOilBarrierInput()
     {
         if (Input.GetKeyDown(KeyCode.B))
         {

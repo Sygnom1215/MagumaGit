@@ -13,6 +13,7 @@ TagManager:
   - AnimalZone
   - SaveItem
   - Wall
+  - Npc
   layers:
   - Default
   - TransparentFX
