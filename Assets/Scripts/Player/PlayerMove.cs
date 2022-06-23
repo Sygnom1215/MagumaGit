@@ -66,6 +66,11 @@ public class PlayerMove : MonoBehaviour
     public void Dash()
     {
         if (hpItem.isSliding == true) return;
+        if (hpItem.isOilBarrier == true)
+        {
+            hpItem.isOilBarrier = false;
+            hpItem.isSliding = false;
+        }
         if (movementDataSO._movementData.IsCanDash && !movementDataSO._movementData.IsDash)
         {
             StartCoroutine(DashIE());

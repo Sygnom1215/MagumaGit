@@ -8,7 +8,7 @@ public class HpItem : MonoBehaviour
     public bool isSliding = false;
 
     private PlayerHp playerHp;
-    private Rigidbody2D playerRigid;
+    public Rigidbody2D playerRigid;
 
     public Queue<SaveHpItem> saveItemQ = new Queue<SaveHpItem>();
 
@@ -80,6 +80,21 @@ public class HpItem : MonoBehaviour
         playerRigid.gravityScale = 0f;
         playerRigid.velocity = Vector2.zero;
         playerRigid.velocity = -playerRigid.transform.right * 5f;
+        StartCoroutine(SlideCoroutine(playerRigid.transform.position.y));
+    }
+
+    IEnumerator SlideCoroutine(float y)
+    {
+        while (isSliding)
+        {
+            if(y != playerRigid.transform.position.y)
+            {
+                playerRigid.transform.position = new Vector3(playerRigid.transform.position.x, y, playerRigid.transform.position.z);
+                playerRigid.velocity = -playerRigid.transform.right * 5f;
+                yield break;
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     public void OutWater()

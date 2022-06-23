@@ -15,7 +15,6 @@ public class PlayerSkill : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-        
     }
     private void Update()
     {
