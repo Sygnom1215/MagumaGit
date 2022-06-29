@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e03b1742ace9f914b8d1ce75fd78034c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOilBarrier: 0
   isSliding: 0
 --- !u!61 &879935218
 BoxCollider2D:
@@ -70,7 +71,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.2}
+  m_Size: {x: 1.15, y: 1.2}
   m_EdgeRadius: 0
 --- !u!1 &1273731682
 GameObject:

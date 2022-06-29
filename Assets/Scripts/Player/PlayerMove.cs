@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour
     //물리 판정할 땐 fixed update 사용
     private void FixedUpdate()
     {
-        ///movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
+        //movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
         if (hpItem.isSliding == true) return;
         movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
         if (movementDataSO._movementData.IsDash && !isDashOnce)
@@ -65,6 +65,12 @@ public class PlayerMove : MonoBehaviour
     }
     public void Dash()
     {
+        if (hpItem.isSliding == true) return;
+        if (hpItem.isOilBarrier == true)
+        {
+            hpItem.isOilBarrier = false;
+            hpItem.isSliding = false;
+        }
         if (movementDataSO._movementData.IsCanDash && !movementDataSO._movementData.IsDash)
         {
             StartCoroutine(DashIE());
