@@ -16,15 +16,15 @@ MonoBehaviour:
     gravity: 3.5
     speed: 7
     jumpForce: 8
-    jumpTimeCounter: 0.18569091
+    jumpTimeCounter: -0.0006056428
     jumpTime: 0.35
     jumpCounter: 2
-    playerDir: -1
-    isGrounded: 1
+    playerDir: 1
+    isGrounded: 0
     isJumping: 0
     isDash: 0
     isRunning: 0
     isDive: 0
     isCanDash: 1
     isCanRunning: 1
-    isCanDive: 0
+    isCanDive: 1

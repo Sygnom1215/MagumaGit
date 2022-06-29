@@ -18,6 +18,7 @@ public class PlayerSkill : MonoBehaviour
     }
     private void Update()
     {
+        JudgeDive();
         Glow();
     }
     private void FixedUpdate()
@@ -32,6 +33,13 @@ public class PlayerSkill : MonoBehaviour
             rigid.velocity = new Vector2(movementDataSO._movementData.MoveInput * movementDataSO._movementData.Speed, rigid.velocity.y);
         }
     }
+    private void JudgeDive()
+    {
+        if (movementDataSO._movementData.IsGrounded)
+        {
+            movementDataSO._movementData.IsDive = false;
+        }
+    }
 
     private void Glow()
     {
@@ -42,7 +50,12 @@ public class PlayerSkill : MonoBehaviour
     {
         if (movementDataSO._movementData.IsCanDive && !movementDataSO._movementData.IsDive)
         {
-            StartCoroutine(DiveIE());
+            if (movementDataSO._movementData.IsGrounded == false)
+            {
+                Debug.Log("Dive!");
+                StartCoroutine(DiveIE());
+            }
+
         }
     }
 

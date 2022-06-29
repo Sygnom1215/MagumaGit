@@ -3235,6 +3235,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnDiveKeyPress.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnUseOilBarrierKeyPress.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnDiveKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnDiveKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 455453697}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: OnDownPlatform.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 281495908}
@@ -3243,13 +3259,53 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 281495908}
     - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnDiveKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: OnCameraMoveKeyCut.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1257964847}
     - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnDiveKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Dive
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: OnCameraMoveKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1257964847}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnUseOilBarrierKeyPress.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnUseOilBarrierKeyPress.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnUseOilBarrierKeyPress.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnUseOilBarrierKeyPress.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnDiveKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerSkill, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnUseOilBarrierKeyPress.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: HpItem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnDiveKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 780907868418675737, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+      propertyPath: OnUseOilBarrierKeyPress.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 780907868418675743, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3278,6 +3334,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 780907868418675743, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
   m_PrefabInstance: {fileID: 455453694}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &455453697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455453696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e147742e81c3614797cbd8679db88af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementDataSO: {fileID: 11400000, guid: 34ed4697152d0374f95a576fae678211, type: 2}
+  glowObject: {fileID: 1752624652}
+  isGlow: 0
 --- !u!4 &461746939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4620439350207392, guid: 42fc513ba3b20c643942adda24484b55, type: 3}
@@ -18693,6 +18764,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5990b0aeb2c5d43ab018031684aba7, type: 3}
+--- !u!1 &1752624652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1294330447, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
+  m_PrefabInstance: {fileID: 455453694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1759370848
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent OnTeleportingKeyPress;
     public UnityEvent OnUseItemKeyPress;
     public UnityEvent OnUseOilBarrierKeyPress;
+    public UnityEvent OnDiveKeyPress;
 
     [SerializeField]
     private PlayerAnimation playerAnimation;
@@ -32,6 +33,7 @@ public class PlayerInput : MonoBehaviour
         GetTeleportInput();
         GetUseItemInput();
         GetUseOilBarrier();
+        GetDiveInput();
     }
 
     private void GetUseOilBarrier()
@@ -71,6 +73,13 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             OnJumpPlatform?.Invoke();
+        }
+    }
+    private void GetDiveInput()
+    {
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            OnDiveKeyPress?.Invoke();
         }
     }
     /// <summary>
