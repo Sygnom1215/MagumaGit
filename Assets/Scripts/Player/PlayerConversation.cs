@@ -8,6 +8,17 @@ public class PlayerConversation : MonoBehaviour
 
     public bool isCanConversation = false;
 
+    private void Update()
+    {
+        if(isCanConversation == true)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Conversation();
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Npc")
