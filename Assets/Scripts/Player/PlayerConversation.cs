@@ -1,30 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerConversation : MonoBehaviour
 {
-    private NpcText npcText; 
+    private NpcText npcText;
+    private int idx = 0;
 
     public bool isCanConversation = false;
+    public bool isTalking = false;
 
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if(isCanConversation == true)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Conversation();
-            }
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Npc")
+        if (col.tag == "Npc")
         {
             isCanConversation = true;
-            npcText = other.GetComponent<NpcText>();
+            npcText = col.GetComponent<NpcText>();
         }
     }
 
@@ -33,11 +25,23 @@ public class PlayerConversation : MonoBehaviour
         if(col.tag == "Npc")
         {
             isCanConversation = false;
+            npcText = null;
         }
     }
 
     public void Conversation()
     {
-
+        isTalking = true;
+        string textData = TextManager.Instance.GetTalk(npcText.npcId, idx);
+        idx++;
+        if(textData == null)
+        {
+            idx = 0;
+            isTalking = false;
+            UIManager.Instance.CloseText();
+            return;
+        }
+        Vector3 pos = npcText.gameObject.transform.position;
+        UIManager.Instance.OpenText(textData, pos);
     }
 }

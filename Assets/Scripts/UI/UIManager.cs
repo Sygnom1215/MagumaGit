@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
     [SerializeField]
     private GameObject menuPanel;
+    [SerializeField]
+    private Text npcDialog;
 
     private bool isOpenMenu = false;
 
@@ -19,6 +21,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         menuPanel.SetActive(false);
+        CloseText();
     }
 
     void Update()
@@ -57,4 +60,17 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("Title");
     }    
 
+    public void OpenText(string textData, Vector3 npcPos)
+    {
+        npcDialog.gameObject.SetActive(true);
+        npcDialog.text = textData;
+        npcDialog.rectTransform.anchoredPosition = npcPos;
+        Time.timeScale = 0f;
+    }
+
+    public void CloseText()
+    {
+        npcDialog.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+    }
 }

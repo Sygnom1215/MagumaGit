@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class NpcText : MonoBehaviour
 {
-    [SerializeField]
-    private List<string> textList = new List<string>();
+    public int npcId;
+    public Transform textPos;
 
-
+    private void Awake()
+    {
+        textPos = GetComponentInChildren<Transform>();
+    }
 }
