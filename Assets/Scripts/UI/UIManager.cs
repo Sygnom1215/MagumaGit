@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     [SerializeField]
     private GameObject menuPanel;
+    [SerializeField]
+    private TextMeshPro npcDialog;
 
     private bool isOpenMenu = false;
 
@@ -19,6 +22,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         menuPanel.SetActive(false);
+        CloseText();
     }
 
     void Update()
@@ -57,4 +61,17 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("Title");
     }    
 
+    public void OpenText(string textData, Vector3 npcPos)
+    {
+        npcDialog.gameObject.SetActive(true);
+        npcDialog.SetText(textData);
+        npcDialog.transform.position = npcPos;
+        Time.timeScale = 0f;
+    }
+
+    public void CloseText()
+    {
+        npcDialog.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+    }
 }

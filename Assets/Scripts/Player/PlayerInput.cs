@@ -15,12 +15,19 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent OnTeleportingKeyPress;
     public UnityEvent OnUseItemKeyPress;
     public UnityEvent OnUseOilBarrierKeyPress;
+    public UnityEvent OnConversationPress;
 
     [SerializeField]
     private PlayerAnimation playerAnimation;
     [SerializeField]
     private MovementDataSO movementDataSO;
 
+    private PlayerConversation playerCon;
+
+    private void Awake()
+    {
+        playerCon = GetComponentInChildren<PlayerConversation>();
+    }
 
     void Update()
     {
@@ -31,46 +38,76 @@ public class PlayerInput : MonoBehaviour
         GetDashInput();
         GetTeleportInput();
         GetUseItemInput();
-        GetUseOilBarrier();
+        GetUseOilBarrierInput();
+        GetConversationInput();
     }
 
-    private void GetUseOilBarrier()
+    private void GetConversationInput()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            OnUseOilBarrierKeyPress?.Invoke();
+            if(playerCon.isCanConversation == true && playerCon.isTalking == false)
+            {
+                OnConversationPress?.Invoke();
+            }
+        }
+    }
+
+    private void GetUseOilBarrierInput()
+    {
+        if (playerCon.isCanConversation == false)
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                OnUseOilBarrierKeyPress?.Invoke();
+            }
         }
     }
 
     private void GetUseItemInput()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        if (playerCon.isCanConversation == false)
         {
-            OnUseItemKeyPress?.Invoke();
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                OnUseItemKeyPress?.Invoke();
+            }
         }
     }
 
     private void GetMoveInput()
     {
-        if (Input.GetAxisRaw("Horizontal") != 0)
+        if (playerCon.isCanConversation == false)
         {
-            OnVelocityChange?.Invoke();
-            if (!movementDataSO._movementData.IsJumping)
+            if (Input.GetAxisRaw("Horizontal") != 0)
             {
-                playerAnimation.SetBool(true);
+                OnVelocityChange?.Invoke();
+                if (!movementDataSO._movementData.IsJumping)
+                {
+                    playerAnimation.SetBool(true);
+                }
+            }
+            else
+            {
+                playerAnimation.SetBool(false);
             }
         }
-        else
-        {
-            playerAnimation.SetBool(false);
-        }
-
     }
     private void GetJumpPlatformInput()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (playerCon.isCanConversation == false)
         {
-            OnJumpPlatform?.Invoke();
+            if (Input.GetKey(KeyCode.Space))
+            {
+                OnJumpPlatform?.Invoke();
+            }
+        }
+        else if(playerCon.isCanConversation == true && playerCon.isTalking == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                OnConversationPress?.Invoke();
+            }
         }
     }
     /// <summary>
@@ -85,34 +122,47 @@ public class PlayerInput : MonoBehaviour
     }
     private void GetCamaraMoveInput()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if (playerCon.isCanConversation == false)
         {
-            OnCameraMoveKeyPress?.Invoke();
-        }
-        else
-        {
-            OnCameraMoveKeyCut?.Invoke();
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                OnCameraMoveKeyPress?.Invoke();
+            }
+            else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                OnCameraMoveKeyCut?.Invoke();
+            }
         }
     }
     private void GetRunningInput()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (playerCon.isCanConversation == false)
         {
-            OnRunningKeyPress?.Invoke();
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                OnRunningKeyPress?.Invoke();
+            }
         }
     }
     private void GetDashInput()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (playerCon.isCanConversation == false)
         {
-            OnDashKeyPress?.Invoke();
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                OnDashKeyPress?.Invoke();
+            }
         }
     }
+            
     private void GetTeleportInput()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        if (playerCon.isCanConversation == false)
         {
-            OnTeleportingKeyPress?.Invoke();
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                OnTeleportingKeyPress?.Invoke();
+            }
         }
     }
 }
