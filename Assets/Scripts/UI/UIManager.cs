@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject menuPanel;
     [SerializeField]
-    private Text npcDialog;
+    private TextMeshPro npcDialog;
 
     private bool isOpenMenu = false;
 
@@ -63,8 +64,8 @@ public class UIManager : MonoBehaviour
     public void OpenText(string textData, Vector3 npcPos)
     {
         npcDialog.gameObject.SetActive(true);
-        npcDialog.text = textData;
-        npcDialog.rectTransform.anchoredPosition = npcPos;
+        npcDialog.SetText(textData);
+        npcDialog.transform.position = npcPos;
         Time.timeScale = 0f;
     }
 
