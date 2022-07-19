@@ -36,12 +36,13 @@ public class PlayerMove : MonoBehaviour
         //movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
         if (hpItem.isSliding == true) return;
         movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
-        if (movementDataSO._movementData.IsDash && !isDashOnce)
-        {
-            rigid.velocity += Vector2.right * movementDataSO._movementData.PlayerDir * 7f;
+        //if (movementDataSO._movementData.IsDash && !isDashOnce)
+        //{
+        //    rigid.velocity += Vector2.right * movementDataSO._movementData.PlayerDir * 7f;
 
-        }
-        else if (movementDataSO._movementData.MoveInput != 0)
+        //}
+        //else 
+        if (movementDataSO._movementData.MoveInput != 0)
         {
             rigid.velocity = new Vector2(movementDataSO._movementData.MoveInput * movementDataSO._movementData.Speed, rigid.velocity.y);
         }
@@ -63,18 +64,33 @@ public class PlayerMove : MonoBehaviour
             StartCoroutine(SpeedUpIE());
         }
     }
+    bool _isdash = false;
+    float dashTime =0;
+    float dashTimeCounter = 0;
+    float dashSpeed = 60f;
     public void Dash()
-    {
-        if (hpItem.isSliding == true) return;
-        if (hpItem.isOilBarrier == true)
+    { 
+        if(dashTime<=0)
         {
-            hpItem.isOilBarrier = false;
-            hpItem.isSliding = false;
+            movementDataSO._movementData.Speed = dashSpeed;
+            if (_isdash)
+                dashTimeCounter = dashTime;
         }
-        if (movementDataSO._movementData.IsCanDash && !movementDataSO._movementData.IsDash)
+        else
         {
-            StartCoroutine(DashIE());
+            dashTime -= Time.deltaTime;
+            
         }
+        //if (hpItem.isSliding == true) return;
+        //if (hpItem.isOilBarrier == true)
+        //{
+        //    hpItem.isOilBarrier = false;
+        //    hpItem.isSliding = false;
+        //}
+        //if (movementDataSO._movementData.IsCanDash && !movementDataSO._movementData.IsDash)
+        //{
+        //    StartCoroutine(DashIE());
+        //}
     }
 
     //플레이어 바닥에 닿았는지 판정하는 범위의 기즈모
@@ -163,18 +179,18 @@ public class PlayerMove : MonoBehaviour
             movementDataSO._movementData.PlayerDir = -1;
         }
     }
-    private IEnumerator DashIE()
-    {
-        Debug.Log("doDash");
-        float gravity = rigid.gravityScale;
-        rigid.gravityScale = 0;
-        movementDataSO._movementData.IsDash = true;
-        yield return new WaitForSeconds(0.1f);
+    //private IEnumerator DashIE()
+    //{
+    //    Debug.Log("doDash");
+    //    float gravity = rigid.gravityScale;
+    //    rigid.gravityScale = 0;
+    //    movementDataSO._movementData.IsDash = true;
+    //    yield return new WaitForSeconds(0.1f);
 
-        rigid.velocity = Vector2.zero;
-        movementDataSO._movementData.IsDash = false;
-        rigid.gravityScale = gravity;
-        yield return new WaitForSeconds(0.4f); //쿨타임
-        isDashOnce = false;
-    }
+    //    rigid.velocity = Vector2.zero;
+    //    movementDataSO._movementData.IsDash = false;
+    //    rigid.gravityScale = gravity;
+    //    yield return new WaitForSeconds(0.4f); //쿨타임
+    //    isDashOnce = false;
+    //}
 }

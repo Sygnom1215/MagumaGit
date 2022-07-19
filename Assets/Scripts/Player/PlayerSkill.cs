@@ -58,7 +58,9 @@ public class PlayerSkill : MonoBehaviour
 
         }
     }
-
+    public void DiveRework()
+    {
+    }
     private IEnumerator DiveIE()
     {
         Debug.Log("doDash");
