@@ -5,5 +5,7 @@ using UnityEngine;
 public class Platform :ScriptableObject
 {
     public float damage;
+    public float healAmount;
     public bool isDamage;
+    public bool isHeal;
 }

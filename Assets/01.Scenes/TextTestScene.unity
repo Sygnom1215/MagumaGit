@@ -345,15 +345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66538c4e0a8e89842b7529ec3da9deb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textManager: {fileID: 900363275}
-  Buttons: {fileID: 0}
-  TitlePanel: {fileID: 0}
-  optionPanel: {fileID: 0}
-  playerName: "\uC6B0\uC601"
-  BlackImage: {fileID: 0}
-  BlackImageObject: {fileID: 0}
-  InputNameCanvas: {fileID: 0}
-  inputField: {fileID: 0}
 --- !u!1 &560774776
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,31 +486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb40e14738eabbc4885adf1f75042823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textPanelObj: {fileID: 1715779594}
-  selectPanel: {fileID: 0}
-  _selectButton: {fileID: 0}
-  background:
-  - {fileID: 0}
-  imageList: []
-  chatID: 1
-  lineNumber: 1
-  backgroundID: 1
-  slotID: 0
-  TextTyping:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 900363275}
-        m_TargetAssemblyTypeName: TextManager, Assembly-CSharp
-        m_MethodName: Typing
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &980400948
 GameObject:
   m_ObjectHideFlags: 0

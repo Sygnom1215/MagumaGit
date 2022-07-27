@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4e2bccc526afde47adf8478da481bc3, type: 3}
-  m_Name: ExplosionPlatform
+  m_Name: LavaPlatform
   m_EditorClassIdentifier: 
-  damage: 5
-  isDamage: 1
+  damage: 0
+  healAmount: 5
+  isDamage: 0
+  isHeal: 1
