@@ -10,17 +10,21 @@ public class PlayerHp : MonoBehaviour
     [SerializeField]
     private Image hpImage;
     [SerializeField]
-    private float playerHp = 100;
+    private float playerHp = 100f;
     [SerializeField]
-    private float playerMaxHp = 100;
+    private float playerMaxHp = 100f;
     [SerializeField]
     private Transform respawnPos;
     private Rigidbody2D rigid;
     [SerializeField]
     private MovementDataSO movementDataSO;
     private bool _isDead = false;
+
+    public static PlayerHp Instance;
+
     private void Start()
     {
+        Instance = this;
         rigid = GetComponent<Rigidbody2D>();
     }
     public void HpDecrease(float decrease)
