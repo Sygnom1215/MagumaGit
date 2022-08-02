@@ -22,7 +22,8 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         menuPanel.SetActive(false);
-        CloseText();
+        if(npcDialog != null)
+            CloseText();
     }
 
     void Update()

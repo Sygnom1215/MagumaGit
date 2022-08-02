@@ -44,6 +44,7 @@ public class PlayerMove : MonoBehaviour
         else if (movementDataSO._movementData.MoveInput != 0)
         {
             rigid.velocity = new Vector2(movementDataSO._movementData.MoveInput * movementDataSO._movementData.Speed, rigid.velocity.y);
+            PlayerHp.Instance.HpDecrease(Time.deltaTime);
         }
     }
 
