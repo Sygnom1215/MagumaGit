@@ -32,18 +32,19 @@ public class ObjectBase : MonoBehaviour
 
     protected void Respawn()
     {
-        if (objectSO.isRespawn && objectSO.respawnCheck)
+        if (objectSO.isRespawn)
         {
-            gameObject.SetActive(true);
+            gameObject.GetComponent<Collider2D>().enabled = true;
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         }
     }
 
     protected IEnumerator RespawnTime()
     {
-        if (objectSO.isRespawn == true && objectSO.respawnCheck == false)
+        if (objectSO.isRespawn == true)
         {
             yield return new WaitForSeconds(objectSO.respawnTime);
-            objectSO.respawnCheck = true;
+            Respawn();
         }
     }
 
@@ -55,7 +56,8 @@ public class ObjectBase : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
         }
     }
 }
