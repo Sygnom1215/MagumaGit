@@ -14,8 +14,14 @@ public class DefaultAttack : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
         Initialize(10);
+    }
+    private void Update()
+    {
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    GetObject();
+        //}
     }
     private void Initialize(int initCount)
     {
