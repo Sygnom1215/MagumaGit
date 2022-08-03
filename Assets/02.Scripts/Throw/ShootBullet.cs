@@ -11,7 +11,7 @@ public class ShootBullet : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
         }

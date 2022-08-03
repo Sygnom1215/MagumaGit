@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2258260506744209340}
   - component: {fileID: 2258260506744209336}
   - component: {fileID: 2258260506744209337}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
