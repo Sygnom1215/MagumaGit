@@ -14,6 +14,8 @@ TagManager:
   - SaveItem
   - Wall
   - Npc
+  - NormalGround
+  - AttackAble
   layers:
   - Default
   - TransparentFX
