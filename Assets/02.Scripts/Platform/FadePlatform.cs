@@ -5,26 +5,34 @@ using DG.Tweening;
 public class FadePlatform : PlatformBase
 {
     [SerializeField]
+    private float respawnTime = 5f;
+    [SerializeField]
     private float fadeAlpha = 1;
     [SerializeField]
     private bool respawn = false;
     private SpriteRenderer spriteRenderer = null;
 
-    void Start()
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    protected override void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnEnable()
+    {
+        SetRespawn();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
-            spriteRenderer.DOFade(0, 2);
-            Invoke("ColliderEnabled", 2f);
+            spriteRenderer.DOFade(0, 1);
+            Invoke("ColliderEnabled", 1f);
         }
         if (respawn)
         {
-            Invoke("ColliderEnabled", 4f);
-            Invoke("SetRespawn", 4f);
+            Invoke("ColliderEnabled", respawnTime);
+            Invoke("SetRespawn", respawnTime);
         }
     }
 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 348c6d1d2a6f9cb42abcc4cfa425937a
+guid: 65231b4cdfd6dc941a9ceafe86f390af
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5663061954668274717
-    second: tileset_0
+      213: -127751033664730378
+    second: tf_jungle_tileset_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -106,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tileset_0
+      name: tf_jungle_tileset_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 121
-        width: 15
-        height: 7
+        x: 99
+        y: 241
+        width: 10
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,8 +120,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d142805f7dc379e40800000000000000
-      internalID: 5663061954668274717
+      spriteID: 6fa89ba9c132a3ef0800000000000000
+      internalID: -127751033664730378
       vertices: []
       indices: 
       edges: []

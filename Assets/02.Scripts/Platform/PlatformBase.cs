@@ -5,29 +5,35 @@ using UnityEngine;
 public class PlatformBase : MonoBehaviour
 {
     [SerializeField]
-    protected Platform platform = null;
+    protected Platform platformSO = null;
     private PlayerHp playerHp;
 
-    //TODO:나중에 FindObjectOfType말고 다른 걸로 찾아오게 수정해야함
     void Start()
     {
-        platform = GetComponent<Platform>();
         playerHp = FindObjectOfType<PlayerHp>();
     }
-    /// <summary>
-    /// 베이스 
-    /// </summary>
-    /// <param name="collision"></param>
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+
+    protected void Damage()
     {
-        //데미지 입히는 거 필요 없으면 안 받아와도 됨
-        if (collision.transform.CompareTag("Player"))
+        if (platformSO.isDamage == true)
         {
-            if (platform.isDamage == true)
-            {
-                playerHp.HpDecrease(platform.damage);
-            }
+            playerHp.HpDecrease(platformSO.damage);
         }
     }
 
+    protected void Heal()
+    {
+        if (platformSO.isHeal == true)
+        {
+            playerHp.HpRecovery(platformSO.healAmount);
+        }
+    }
+
+    protected void Die()
+    {
+        if (platformSO.isDie == true)
+        {
+            playerHp.PlayerDead();
+        }
+    }
 }
