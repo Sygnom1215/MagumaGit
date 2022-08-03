@@ -8,4 +8,5 @@ public class Platform :ScriptableObject
     public float healAmount;
     public bool isDamage;
     public bool isHeal;
+    public bool isDie;
 }

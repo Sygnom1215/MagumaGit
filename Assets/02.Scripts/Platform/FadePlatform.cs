@@ -26,8 +26,8 @@ public class FadePlatform : PlatformBase
     {
         if (collision.transform.CompareTag("Player"))
         {
-            spriteRenderer.DOFade(0, 2);
-            Invoke("ColliderEnabled", 2f);
+            spriteRenderer.DOFade(0, 1);
+            Invoke("ColliderEnabled", 1f);
         }
         if (respawn)
         {

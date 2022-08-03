@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e2bccc526afde47adf8478da481bc3, type: 3}
   m_Name: ExplosionPlatform
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
+  healAmount: 0
   isDamage: 1
+  isHeal: 0

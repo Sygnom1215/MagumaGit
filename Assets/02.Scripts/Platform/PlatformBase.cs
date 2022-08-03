@@ -12,7 +12,7 @@ public class PlatformBase : MonoBehaviour
     {
         playerHp = FindObjectOfType<PlayerHp>();
     }
-    
+
     protected void Damage()
     {
         if (platformSO.isDamage == true)
@@ -26,6 +26,14 @@ public class PlatformBase : MonoBehaviour
         if (platformSO.isHeal == true)
         {
             playerHp.HpRecovery(platformSO.healAmount);
+        }
+    }
+
+    protected void Die()
+    {
+        if (platformSO.isDie == true)
+        {
+            playerHp.PlayerDead();
         }
     }
 }
