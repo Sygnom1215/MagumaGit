@@ -18,7 +18,8 @@ public class TextManager : MonoBehaviour
     //대화 설정
     private void GenerateData()
     {
-        talkData.Add(1000, new string[] { "Test", "Hello"});
+        //npc 개구리
+        talkData.Add(1, new string[] { "거기 잠깐, 설마 물에\n빠질 생각은 아니지?", "SPACEBAR를 누르면\n점프할 수 있어 개골", "그리고 연못을 조심해라 개골"});
     }
 
     public string GetTalk(int id, int textIdx)
