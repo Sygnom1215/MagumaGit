@@ -10,11 +10,18 @@ public class PlayerTeleport : MonoBehaviour
     private GameObject firePrefab = null;
     [SerializeField]
     private float teleportDistance = 0f;
+    [SerializeField]
     private GameObject fireObject = null;
     private bool isFire = false;
 
-    private void Start()
+    private void OnEnable()
     {
+        if (GameObject.Find("TeleportFire(Clone)") != null || fireObject != null)
+        {
+            Destroy(fireObject);
+            Destroy(GameObject.Find("TeleportFire(Clone)"));
+        }
+
         fireObject = Instantiate(firePrefab, Vector3.zero, Quaternion.identity);
         fireObject.SetActive(false);
     }
