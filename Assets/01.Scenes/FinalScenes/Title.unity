@@ -3040,9 +3040,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " \uC870\uC791\uD0A4\n\n \uC774\uB3D9 : W A S D , \uBC29\uD5A5\uD0A4\n\uB300\uC26C
-    : C\n \uC2A4\uD53C\uB4DC \uC5C5 : Z\n \uD22C\uC0AC\uCCB4 \uBC1C\uC0AC : \uB9C8\uC6B0\uC2A4
-    \uC88C\uD074\uB9AD"
+  m_text: " \uC870\uC791\uD0A4\n\n \uC88C\uC6B0\uC774\uB3D9 : A  D , \uBC29\uD5A5\uD0A4
+    <-, ->\n \uC704 \uBCF4\uAE30 : W\n \uB300\uC26C : C\n \uC2A4\uD53C\uB4DC \uC5C5
+    : Z\n \uD22C\uC0AC\uCCB4 \uBC1C\uC0AC : \uB9C8\uC6B0\uC2A4 \uC88C\uD074\uB9AD"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e785290d1149ca4bbc76b6c26c56658, type: 2}
   m_sharedMaterial: {fileID: -4258617979717120769, guid: 3e785290d1149ca4bbc76b6c26c56658, type: 2}
