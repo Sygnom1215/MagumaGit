@@ -62,7 +62,7 @@ public class PlayerInput : MonoBehaviour
 
     private void GetUseOilBarrierInput()
     {
-        if (playerCon.isCanConversation == false)
+        if (playerCon.isTalking == false)
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
@@ -73,7 +73,7 @@ public class PlayerInput : MonoBehaviour
 
     private void GetUseItemInput()
     {
-        if (playerCon.isCanConversation == false)
+        if (playerCon.isTalking == false)
         {
             if (Input.GetKeyDown(KeyCode.V))
             {
@@ -84,7 +84,7 @@ public class PlayerInput : MonoBehaviour
 
     private void GetMoveInput()
     {
-        if (playerCon.isCanConversation == false)
+        if (playerCon.isTalking == false)
         {
             if (Input.GetAxisRaw("Horizontal") != 0)
             {
@@ -102,7 +102,7 @@ public class PlayerInput : MonoBehaviour
     }
     private void GetJumpPlatformInput()
     {
-        if (playerCon.isCanConversation == false)
+        if (playerCon.isTalking == false)
         {
             if (Input.GetKey(KeyCode.Space))
             {
@@ -116,7 +116,7 @@ public class PlayerInput : MonoBehaviour
     /// </summary>
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (playerCon.isCanConversation == false)
+        if (playerCon.isTalking == false)
         {
             if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
@@ -126,7 +126,7 @@ public class PlayerInput : MonoBehaviour
     }
     private void GetCamaraMoveInput()
     {
-        if (playerCon.isCanConversation == false)
+        if (playerCon.isTalking == false)
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
@@ -140,7 +140,7 @@ public class PlayerInput : MonoBehaviour
     }
     private void GetRunningInput()
     {
-        if (playerCon.isCanConversation == false)
+        if (playerCon.isTalking == false)
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
@@ -150,7 +150,7 @@ public class PlayerInput : MonoBehaviour
     }
     private void GetDashInput()
     {
-        if (playerCon.isCanConversation == false)
+        if (playerCon.isTalking == false)
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
@@ -161,7 +161,7 @@ public class PlayerInput : MonoBehaviour
             
     private void GetTeleportInput()
     {
-        if (playerCon.isCanConversation == false)
+        if (playerCon.isTalking == false)
         {
             if (Input.GetKeyDown(KeyCode.H))
             {

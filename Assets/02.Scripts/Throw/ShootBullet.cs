@@ -11,18 +11,29 @@ public class ShootBullet : MonoBehaviour
     [SerializeField]
     private Transform PointsParentTransform;
 
+    //playerinput À¸·Î ¿Å±â¸é Áö¿ï²¨ - ¼­À±
+    private PlayerConversation playerCon;
+
+    private void Start()
+    {
+        playerCon = transform.parent.parent.GetComponentInChildren<PlayerConversation>();
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if(playerCon.isTalking == false)
         {
-            PointsParentTransform.gameObject.SetActive(true);
-            Time.timeScale=0.1f;
-        }
-        if(Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            Shoot();
-            PointsParentTransform.gameObject.SetActive(false);
-            Time.timeScale=1;
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                PointsParentTransform.gameObject.SetActive(true);
+                Time.timeScale = 0.1f;
+            }
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                Shoot();
+                PointsParentTransform.gameObject.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
     private void Shoot()

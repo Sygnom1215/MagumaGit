@@ -1580,8 +1580,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e785290d1149ca4bbc76b6c26c56658, type: 2}
-  m_sharedMaterial: {fileID: -4258617979717120769, guid: 3e785290d1149ca4bbc76b6c26c56658, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c99e8d99aaa120247b7d879a88d2b347, type: 2}
+  m_sharedMaterial: {fileID: -4808748725773339402, guid: c99e8d99aaa120247b7d879a88d2b347, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1669,7 +1669,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4258617979717120769, guid: 3e785290d1149ca4bbc76b6c26c56658, type: 2}
+  - {fileID: -4808748725773339402, guid: c99e8d99aaa120247b7d879a88d2b347, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1861,7 +1861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33db3af9200079d4a91c43f1bac34165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcId: 1
+  npcId: 0
 --- !u!61 &254894720
 BoxCollider2D:
   m_ObjectHideFlags: 0
