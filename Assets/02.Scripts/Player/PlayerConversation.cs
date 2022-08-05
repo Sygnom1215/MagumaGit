@@ -41,7 +41,7 @@ public class PlayerConversation : MonoBehaviour
             UIManager.Instance.CloseText();
             return;
         }
-        Vector3 pos = npcText.gameObject.transform.position + new Vector3(0f, 1.5f, -0.1f);
+        Vector3 pos = npcText.gameObject.transform.position + new Vector3(0f, 2.5f, -0.1f);
         UIManager.Instance.OpenText(textData, pos);
     }
 }
