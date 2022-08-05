@@ -27,6 +27,7 @@ public class PlayerMove : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         hpItem = GetComponentInChildren<HpItem>();
+        gameObject.transform.position = movementDataSO.startPos;
         jumpCounter = movementDataSO._movementData.JumpCounter;
         TurnPlayer();
     }

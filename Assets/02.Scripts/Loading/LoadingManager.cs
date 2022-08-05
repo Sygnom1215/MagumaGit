@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class LoadingManager : MonoBehaviour
 {
-    
     [SerializeField]
     private SceneNameDataSO sceneNameDataSO;
     [SerializeField]
