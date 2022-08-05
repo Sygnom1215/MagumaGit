@@ -16,13 +16,7 @@ public class DefaultAttack : MonoBehaviour
         Instance = this;
         Initialize(10);
     }
-    private void Update()
-    {
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    GetObject();
-        //}
-    }
+
     private void Initialize(int initCount)
     {
         for (int i = 0; i < initCount; i++)
@@ -38,7 +32,10 @@ public class DefaultAttack : MonoBehaviour
         newObj.transform.SetParent(transform);
         return newObj;
     }
-
+    /// <summary>
+    /// 총알을 꺼내옵니다
+    /// </summary>
+    /// <returns></returns>
     public static Bullet GetObject()
     {
         if (Instance.poolingObjectQueue.Count > 0)
@@ -56,7 +53,10 @@ public class DefaultAttack : MonoBehaviour
             return newObj;
         }
     }
-
+    /// <summary>
+    /// 총알을 삭제합니다
+    /// </summary>
+    /// <param name="obj">삭제할 오브젝트</param>
     public static void ReturnObject(Bullet obj)
     {
         obj.gameObject.SetActive(false);
