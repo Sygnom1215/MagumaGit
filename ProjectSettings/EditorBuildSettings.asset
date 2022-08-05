@@ -12,21 +12,27 @@ EditorBuildSettings:
     path: Assets/01.Scenes/FinalScenes/Title.unity
     guid: adb8ec51815436342905ffd732992701
   - enabled: 1
-    path: Assets/01.Scenes/FinalScenes/Stages/0_Tuto.unity
-    guid: 1f429ba445f66e343bc5a3383268e45c
-  - enabled: 1
-    path: Assets/01.Scenes/FinalScenes/Stages/1_Forest-1.unity
-    guid: da689dd285bf39c478c283239b600930
-  - enabled: 0
-    path: Assets/01.Scenes/FinalScenes/Stages/1_Forest-2.unity
-    guid: bc4a34c94de627a4594468f31365019c
-  - enabled: 0
-    path: Assets/01.Scenes/FinalScenes/Stages/2_Tree.unity
-    guid: f1d50e4b411575142a47a231377c2e77
-  - enabled: 0
-    path: Assets/01.Scenes/FinalScenes/Stages/3_Lake.unity
-    guid: 737248ce813d97543b6c8d2a5f90fe40
-  - enabled: 1
     path: Assets/01.Scenes/FinalScenes/LoadingScene.unity
     guid: 743579fbc49a3c4449884c904b944443
+  - enabled: 1
+    path: Assets/01.Scenes/Stage/Cave_Left.unity
+    guid: 2fa09237954f0b24786ec59693730f1d
+  - enabled: 1
+    path: Assets/01.Scenes/Stage/Cave_Right.unity
+    guid: a277bfef14014864f83968521fafc8d2
+  - enabled: 1
+    path: Assets/01.Scenes/Stage/Volcano_1.unity
+    guid: 85dfa246a8681164e9432af9e939ced9
+  - enabled: 1
+    path: Assets/01.Scenes/Stage/Volcano_2.unity
+    guid: ccb8ae0b5d9538e4392bca7c7abe9730
+  - enabled: 1
+    path: Assets/01.Scenes/Stage/Volcano_3.unity
+    guid: 32bf567fb00454d4c994b82dbfb0d451
+  - enabled: 1
+    path: Assets/01.Scenes/Stage/Volcano_4.unity
+    guid: 5ae17b44db4c8794aa3d12fe954c2be7
+  - enabled: 1
+    path: Assets/01.Scenes/Stage/Volcano_5.unity
+    guid: ffb4db859e02cbd43ac8adca230b8987
   m_configObjects: {}

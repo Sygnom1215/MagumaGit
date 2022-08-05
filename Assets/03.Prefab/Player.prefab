@@ -709,7 +709,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1335532133
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 3841753352409701326, guid: 522e29a644c956646b2413dd605cbd6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -977,7 +977,7 @@ MonoBehaviour:
   hpImage: {fileID: 0}
   playerHp: 100
   playerMaxHp: 100
-  respawnPos: {fileID: 0}
+  respawnPos: {fileID: 780907868418675717}
   movementDataSO: {fileID: 11400000, guid: 34ed4697152d0374f95a576fae678211, type: 2}
 --- !u!114 &780907868418675736
 MonoBehaviour:
