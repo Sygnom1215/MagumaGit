@@ -274,7 +274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &33903400
 RectTransform:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &140972368
 Transform:
   m_ObjectHideFlags: 0
@@ -930,7 +930,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD29C\uD1A0\uB9AC\uC5BC"
+  m_text: "\uC2DC\uC791"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c99e8d99aaa120247b7d879a88d2b347, type: 2}
   m_sharedMaterial: {fileID: -4808748725773339402, guid: c99e8d99aaa120247b7d879a88d2b347, type: 2}
@@ -1722,11 +1722,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e525e9adbd2fd489dc30243aeca7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dirScene: 0_Tuto
+  dirScene: Volcano_1
   sceneType: 1
   startType: 0
-  loadingDataSO: {fileID: 0}
-  movementDataSO: {fileID: 0}
+  loadingDataSO: {fileID: 11400000, guid: 194ced21bd8921a4d877d41d19d72d85, type: 2}
+  movementDataSO: {fileID: 11400000, guid: 34ed4697152d0374f95a576fae678211, type: 2}
 --- !u!1 &1229622777
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,7 +2963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1915212161
 Transform:
   m_ObjectHideFlags: 0

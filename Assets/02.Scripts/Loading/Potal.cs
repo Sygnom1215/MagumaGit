@@ -51,6 +51,7 @@ public class Potal : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             movementDataSO.startPos = loadingDataSO.startPos[(int)startType];
+            movementDataSO._movementData.IsDash = false;
             LoadingManager.LoadScene(dirScene, ((int)sceneType));
         }
     }

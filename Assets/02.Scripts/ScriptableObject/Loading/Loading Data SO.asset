@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Loading Data SO
   m_EditorClassIdentifier: 
   startPos:
-  - {x: -20, y: 12.47}
+  - {x: -18.13, y: 12.02}
   - {x: -13.97, y: -3.1}
-  - {x: 3.09, y: 3.6}
+  - {x: 3.2, y: 2.49}
   - {x: 12.41, y: -20.05}
   - {x: 4.7, y: 3.29}
   - {x: -6.19, y: -42.91}
