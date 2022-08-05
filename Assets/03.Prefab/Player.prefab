@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lunchForce: 10
   bullet: {fileID: 2258260506744209341, guid: d969918c91e05784c9d89f4aa534c993, type: 3}
+  PointsParentTransform: {fileID: 789597615}
 --- !u!1 &789597614
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,15 +284,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 848fec0538108954f85d09031540e7e5, type: 3}
-  m_Color: {r: 0.43941498, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1233833094
@@ -427,10 +428,10 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.603
-  m_Color: {r: 1, g: 0.53708243, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.7179874, b: 0.390566, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0.162
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000009b6565b0
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0

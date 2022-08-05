@@ -31,6 +31,7 @@ public class ThrowArm : MonoBehaviour
             if (alpa > 0)
                 alpa -= 0.08f;
         }
+        PointsParentTransform.gameObject.SetActive(false);
     }
     private void Update()
     {

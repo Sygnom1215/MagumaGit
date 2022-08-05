@@ -3458,26 +3458,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1294330449, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: m_Color.b
-      value: 0.390566
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294330449, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: m_Color.g
-      value: 0.7179874
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294330449, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294330449, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294330449, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: -1335532133
-      objectReference: {fileID: 0}
     - target: {fileID: 780907868418675717, guid: bff88472244bfab499c5171e36f3f2be, type: 3}
       propertyPath: m_RootOrder
       value: 1

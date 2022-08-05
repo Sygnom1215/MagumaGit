@@ -8,12 +8,21 @@ public class ShootBullet : MonoBehaviour
     private float lunchForce;
     [SerializeField]
     private GameObject bullet;
+    [SerializeField]
+    private Transform PointsParentTransform;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            PointsParentTransform.gameObject.SetActive(true);
+            Time.timeScale=0.1f;
+        }
+        if(Input.GetKeyUp(KeyCode.Mouse0))
+        {
             Shoot();
+            PointsParentTransform.gameObject.SetActive(false);
+            Time.timeScale=1;
         }
     }
     private void Shoot()
