@@ -26,6 +26,10 @@ public class Bullet : MonoBehaviour
         {
             isHit = true;
         }
-            Destroy(gameObject);
+        DestroyBullet();
+    }
+    private void DestroyBullet()
+    {
+        DefaultAttack.ReturnObject(this);
     }
 }

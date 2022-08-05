@@ -176,8 +176,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e525e9adbd2fd489dc30243aeca7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dirScene: 1_Forest-1
+  dirScene: YeBattle
   sceneType: 2
+  loadingDataSO: {fileID: 11400000, guid: 194ced21bd8921a4d877d41d19d72d85, type: 2}
+  movementDataSO: {fileID: 11400000, guid: 34ed4697152d0374f95a576fae678211, type: 2}
+  startType: 1
 --- !u!61 &6036468370786759380
 BoxCollider2D:
   m_ObjectHideFlags: 0

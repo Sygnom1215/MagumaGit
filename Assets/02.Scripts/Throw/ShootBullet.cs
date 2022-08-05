@@ -8,17 +8,20 @@ public class ShootBullet : MonoBehaviour
     private float lunchForce;
     [SerializeField]
     private GameObject bullet;
-    
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
         }
     }
     private void Shoot()
     {
-        GameObject bulletIns = Instantiate(bullet, transform.position,transform.rotation);
+        var bulletIns = DefaultAttack.GetObject();
+        //GameObject bulletIns = Instantiate(bullet, transform.position, transform.rotation);
+        bulletIns.transform.position = gameObject.transform.position;
+        bulletIns.transform.localScale=Vector3.one;
         bulletIns.GetComponent<Rigidbody2D>().velocity = transform.right * lunchForce;
     }
 }
