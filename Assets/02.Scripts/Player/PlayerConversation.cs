@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerConversation : MonoBehaviour
 {
-    private NpcText npcText;
+    private NpcId npcText;
     private int idx = 0;
 
     public bool isCanConversation = false;
@@ -16,7 +16,7 @@ public class PlayerConversation : MonoBehaviour
         if (col.tag == "Npc")
         {
             isCanConversation = true;
-            npcText = col.GetComponent<NpcText>();
+            npcText = col.GetComponent<NpcId>();
         }
     }
 
@@ -41,7 +41,7 @@ public class PlayerConversation : MonoBehaviour
             UIManager.Instance.CloseText();
             return;
         }
-        Vector3 pos = npcText.gameObject.transform.position + new Vector3(0f, 1.5f, 0f);
+        Vector3 pos = npcText.gameObject.transform.position + new Vector3(0f, 1.5f, -0.1f);
         UIManager.Instance.OpenText(textData, pos);
     }
 }

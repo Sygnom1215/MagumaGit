@@ -51,6 +51,13 @@ public class PlayerInput : MonoBehaviour
                 OnConversationPress?.Invoke();
             }
         }
+        else if (playerCon.isCanConversation == true && playerCon.isTalking == true)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                OnConversationPress?.Invoke();
+            }
+        }
     }
 
     private void GetUseOilBarrierInput()
@@ -102,22 +109,19 @@ public class PlayerInput : MonoBehaviour
                 OnJumpPlatform?.Invoke();
             }
         }
-        else if(playerCon.isCanConversation == true && playerCon.isTalking == true)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                OnConversationPress?.Invoke();
-            }
-        }
+        
     }
     /// <summary>
     /// æ„¿∫ «√∑ß∆˚ ¿ßø° ¿÷¿ª ∂ß down≈∞∏¶ ¥©∏£∏È «√∑ß∆˚¿ª ≥ª∑¡∞®
     /// </summary>
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        if (playerCon.isCanConversation == false)
         {
-            OnDownPlatform?.Invoke();
+            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            {
+                OnDownPlatform?.Invoke();
+            }
         }
     }
     private void GetCamaraMoveInput()
