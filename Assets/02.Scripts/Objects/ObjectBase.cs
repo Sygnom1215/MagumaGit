@@ -9,9 +9,19 @@ public class ObjectBase : MonoBehaviour
 
     protected PlayerHp playerHp = null;
 
+    private Collider2D col = null;
+    private SpriteRenderer spriteRenderer = null;
+
+
     private void Awake()
     {
         playerHp = FindObjectOfType<PlayerHp>();
+    }
+
+    private void Start()
+    {
+        col = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     protected void Damage()
@@ -34,8 +44,8 @@ public class ObjectBase : MonoBehaviour
     {
         if (objectSO.isRespawn)
         {
-            gameObject.GetComponent<Collider2D>().enabled = true;
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            col.enabled = true;
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         }
     }
 
@@ -56,8 +66,8 @@ public class ObjectBase : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<Collider2D>().enabled = false;
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+            col.enabled = false;
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
         }
     }
 }
