@@ -4,5 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/Agent/MovementData")]
 public class MovementDataSO : ScriptableObject
 {
-   public MovementData _movementData;
+    public MovementData _movementData;
+    public Vector2 startPos;
 }
