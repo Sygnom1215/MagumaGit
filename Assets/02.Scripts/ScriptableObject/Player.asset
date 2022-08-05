@@ -28,4 +28,4 @@ MonoBehaviour:
     isCanDash: 1
     isCanRunning: 1
     isCanDive: 0
-  startPos: {x: 0, y: 0}
+  startPos: {x: -18.13, y: 12.02}
