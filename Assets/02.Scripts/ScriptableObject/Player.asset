@@ -16,7 +16,7 @@ MonoBehaviour:
     gravity: 3.5
     speed: 7
     jumpForce: 8
-    jumpTimeCounter: 0.08867478
+    jumpTimeCounter: 0.21950816
     jumpTime: 0.35
     jumpCounter: 2
     playerDir: -1
@@ -28,4 +28,4 @@ MonoBehaviour:
     isCanDash: 1
     isCanRunning: 1
     isCanDive: 0
-  startPos: {x: -18.13, y: 12.02}
+  startPos: {x: 10.89, y: -19.89}

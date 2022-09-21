@@ -757,7 +757,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &780907868418675737
 MonoBehaviour:
@@ -1060,3 +1060,4 @@ MonoBehaviour:
   movementDataSO: {fileID: 11400000, guid: 34ed4697152d0374f95a576fae678211, type: 2}
   firePrefab: {fileID: 4017145729318997197, guid: 1506989a13863f24385a8c192229f493, type: 3}
   teleportDistance: 10
+  fireObject: {fileID: 0}
