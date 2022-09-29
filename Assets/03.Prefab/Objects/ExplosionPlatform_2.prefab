@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8746745600825768950}
   - component: {fileID: 4030719843898050773}
   - component: {fileID: 5247158000640853249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ExplosionPlatform_2
-  m_TagString: Untagged
+  m_TagString: NormalGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,9 +124,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformSO: {fileID: 11400000, guid: 70ab96ce5bc96c84fa4a9f3a766e00d3, type: 2}
-  explosionPower: 0.5
+  explosionPower: 20
   waitTime: 1.5
   colTime: 0
+  isDamageOnce: 0
+  area: {x: 2, y: 2}
+  positionModify: {x: 0.5, y: 0}
 --- !u!1 &7807353349121525823
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5187914241262198135}
   - component: {fileID: 2680999434181767150}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
