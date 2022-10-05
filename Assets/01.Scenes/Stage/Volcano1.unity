@@ -394,11 +394,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6036468370786759383, guid: 461b98f49814d094ea5a309dbdd934fb, type: 3}
       propertyPath: dirScene
-      value: Volcano_2
+      value: Volcano2
       objectReference: {fileID: 0}
     - target: {fileID: 6036468370786759383, guid: 461b98f49814d094ea5a309dbdd934fb, type: 3}
       propertyPath: startType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036468370786759383, guid: 461b98f49814d094ea5a309dbdd934fb, type: 3}
+      propertyPath: potalStartType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461b98f49814d094ea5a309dbdd934fb, type: 3}

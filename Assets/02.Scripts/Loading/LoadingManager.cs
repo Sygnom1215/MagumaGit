@@ -42,6 +42,7 @@ public class LoadingManager : MonoBehaviour
                 sceneName.text = sceneNameDataSO.SceneName[currentScene];
                 yield return new WaitForSeconds(2f);
                 op.allowSceneActivation = true;
+
                 yield break;
             }
 

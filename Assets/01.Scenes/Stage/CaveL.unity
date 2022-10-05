@@ -435,7 +435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6036468370786759383, guid: 461b98f49814d094ea5a309dbdd934fb, type: 3}
       propertyPath: dirScene
-      value: Volcano_5
+      value: Volcano5
       objectReference: {fileID: 0}
     - target: {fileID: 6036468370786759383, guid: 461b98f49814d094ea5a309dbdd934fb, type: 3}
       propertyPath: sceneType
@@ -444,6 +444,10 @@ PrefabInstance:
     - target: {fileID: 6036468370786759383, guid: 461b98f49814d094ea5a309dbdd934fb, type: 3}
       propertyPath: startType
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036468370786759383, guid: 461b98f49814d094ea5a309dbdd934fb, type: 3}
+      propertyPath: potalStartType
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461b98f49814d094ea5a309dbdd934fb, type: 3}
@@ -32446,6 +32450,9 @@ MonoBehaviour:
   explosionPower: 0.5
   waitTime: 1.5
   colTime: 0
+  isDamageOnce: 0
+  area: {x: 2, y: 2}
+  positionModify: {x: 1, y: 0}
 --- !u!61 &2112056325
 BoxCollider2D:
   m_ObjectHideFlags: 0

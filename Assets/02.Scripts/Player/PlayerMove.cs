@@ -10,7 +10,6 @@ public class PlayerMove : MonoBehaviour
 
     public int jumpCounter = 0;
     //대시를 한 번 했는가
-    private bool isDashOnce = false;
     private Rigidbody2D rigid;
     private HpItem hpItem;
 
@@ -18,26 +17,27 @@ public class PlayerMove : MonoBehaviour
     private Transform feetPos;
     public float checkRdius;
     public LayerMask whatIsGround;
+    public Rigidbody2D Rigid =>rigid;
 
     private void Awake()
     {
-        movementDataSO._movementData.IsRunning = false;
+        rigid = GetComponent<Rigidbody2D>();
+        hpItem = GetComponentInChildren<HpItem>();
     }
     private void Start()
     {
-        rigid = GetComponent<Rigidbody2D>();
-        hpItem = GetComponentInChildren<HpItem>();
-        gameObject.transform.position = movementDataSO.startPos;
         jumpCounter = movementDataSO._movementData.JumpCounter;
+        movementDataSO.Gravity = rigid.gravityScale;
+        movementDataSO.DefaultSpeed = movementDataSO._movementData.Speed;
+        movementDataSO.MoveReset(this);
         TurnPlayer();
     }
     //물리 판정할 땐 fixed update 사용
     private void FixedUpdate()
     {
-        //movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
         if (hpItem.isSliding == true) return;
         movementDataSO._movementData.MoveInput = Input.GetAxisRaw("Horizontal");
-        if (movementDataSO._movementData.IsDash && !isDashOnce)
+        if (movementDataSO._movementData.IsDash && !movementDataSO.IsDashOnce)
         {
             rigid.velocity += Vector2.right * movementDataSO._movementData.PlayerDir * 7f;
 
@@ -141,11 +141,10 @@ public class PlayerMove : MonoBehaviour
     private IEnumerator SpeedUpIE()
     {
         Debug.Log("SpeedUp");
-        float defaultSpeed = movementDataSO._movementData.Speed;
         movementDataSO._movementData.Speed += 5f;
         movementDataSO._movementData.IsRunning = true;
         yield return new WaitForSeconds(5f);
-        movementDataSO._movementData.Speed = defaultSpeed;
+        movementDataSO._movementData.Speed = movementDataSO.DefaultSpeed;
         yield return new WaitForSeconds(15f);
         movementDataSO._movementData.IsRunning = false;
     }
@@ -168,15 +167,18 @@ public class PlayerMove : MonoBehaviour
     private IEnumerator DashIE()
     {
         Debug.Log("doDash");
-        float gravity = rigid.gravityScale;
         rigid.gravityScale = 0;
         movementDataSO._movementData.IsDash = true;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
+        movementDataSO._movementData.IsCanDash = false;
 
         rigid.velocity = Vector2.zero;
         movementDataSO._movementData.IsDash = false;
-        rigid.gravityScale = gravity;
+        rigid.gravityScale = movementDataSO.Gravity;
         yield return new WaitForSeconds(0.4f); //쿨타임
-        isDashOnce = false;
+        movementDataSO.IsDashOnce = false;
+        movementDataSO._movementData.IsCanDash = true;
     }
+
+   
 }

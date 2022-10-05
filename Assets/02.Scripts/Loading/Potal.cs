@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System;
 public class Potal : MonoBehaviour
 {
     public enum SCENETYPE
@@ -40,7 +40,7 @@ public class Potal : MonoBehaviour
     [SerializeField]
     private SCENETYPE sceneType; //이름 표시 용 Enum 값
     [SerializeField]
-    private STARTTYPE startType;
+    private STARTTYPE potalStartType;
     [Space(15)]
     [SerializeField]
     private LoadingDataSO loadingDataSO;
@@ -50,12 +50,22 @@ public class Potal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            movementDataSO.startPos = loadingDataSO.startPos[(int)startType];
-            movementDataSO._movementData.IsDash = false;
+            SetDefaultPos(movementDataSO);
+            movementDataSO.MoveReset(FindObjectOfType<PlayerMove>());
             LoadingManager.LoadScene(dirScene, ((int)sceneType));
         }
     }
 
+    public void SetDefaultPos(MovementDataSO owner)
+    {
+        owner.startPos = loadingDataSO.startPos[(int)potalStartType];
+    }
+    public static void SetDefaultPos(MovementDataSO owner, LoadingDataSO _loadingDataSO, string startType)
+    {
+        startType += "_1"; //enum과 이름 맞추기 위해
+        STARTTYPE curType = (STARTTYPE)Enum.Parse(typeof(STARTTYPE), startType);
+        owner.startPos = _loadingDataSO.startPos[(int)curType];
+    }
     public void SelectStage()
     {
         LoadingManager.LoadScene(dirScene, ((int)sceneType));
