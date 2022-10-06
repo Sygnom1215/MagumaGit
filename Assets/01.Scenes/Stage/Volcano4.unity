@@ -230,6 +230,10 @@ PrefabInstance:
       propertyPath: startType
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6036468370786759383, guid: 461b98f49814d094ea5a309dbdd934fb, type: 3}
+      propertyPath: potalStartType
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461b98f49814d094ea5a309dbdd934fb, type: 3}
 --- !u!224 &8605364 stripped
