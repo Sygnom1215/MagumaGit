@@ -12,7 +12,6 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent OnDownPlatform;
     public UnityEvent OnRunningKeyPress;
     public UnityEvent OnDashKeyPress;
-    public UnityEvent OnTeleportingKeyPress;
     public UnityEvent OnUseItemKeyPress;
     public UnityEvent OnUseOilBarrierKeyPress;
     public UnityEvent OnConversationPress;
@@ -36,7 +35,6 @@ public class PlayerInput : MonoBehaviour
         GetJumpPlatformInput(); //얇은 플랫폼 점프해서 올라감
         GetRunningInput(); //일반 공격 감지
         GetDashInput();
-        GetTeleportInput();
         GetUseItemInput();
         GetUseOilBarrierInput();
         GetConversationInput();
@@ -159,14 +157,4 @@ public class PlayerInput : MonoBehaviour
         }
     }
             
-    private void GetTeleportInput()
-    {
-        if (playerCon.isTalking == false)
-        {
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                OnTeleportingKeyPress?.Invoke();
-            }
-        }
-    }
 }
