@@ -15,6 +15,7 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent OnUseItemKeyPress;
     public UnityEvent OnUseOilBarrierKeyPress;
     public UnityEvent OnConversationPress;
+    public UnityEvent OnShortAttackKeyPress;
 
     [SerializeField]
     private PlayerAnimation playerAnimation;
@@ -38,20 +39,21 @@ public class PlayerInput : MonoBehaviour
         GetUseItemInput();
         GetUseOilBarrierInput();
         GetConversationInput();
+        GetShortAttackInput();
     }
 
     private void GetConversationInput()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if(playerCon.isCanConversation == true && playerCon.isTalking == false)
+            if (playerCon.isCanConversation == true && playerCon.isTalking == false)
             {
                 OnConversationPress?.Invoke();
             }
         }
         else if (playerCon.isCanConversation == true && playerCon.isTalking == true)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 OnConversationPress?.Invoke();
             }
@@ -107,7 +109,7 @@ public class PlayerInput : MonoBehaviour
                 OnJumpPlatform?.Invoke();
             }
         }
-        
+
     }
     /// <summary>
     /// æ„¿∫ «√∑ß∆˚ ¿ßø° ¿÷¿ª ∂ß down≈∞∏¶ ¥©∏£∏È «√∑ß∆˚¿ª ≥ª∑¡∞®
@@ -156,5 +158,15 @@ public class PlayerInput : MonoBehaviour
             }
         }
     }
-            
+
+    private void GetShortAttackInput()
+    {
+        if (playerCon.isTalking == false)
+        {
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                OnShortAttackKeyPress?.Invoke();
+            }
+        }
+    }
 }
