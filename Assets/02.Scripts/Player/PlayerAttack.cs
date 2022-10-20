@@ -4,61 +4,34 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    //[SerializeField]
-    //private Transform startAttackPos;
+    public LayerMask layerMask;
+    public Vector2 attackRange = new Vector2(3f, 2f);
+
+    private Animator animator = null;
+    private Vector2 attackPos = Vector2.zero;
+
     [SerializeField]
-    private Transform attackPos;
-    [SerializeField]
-    private float attackLength;
-    [SerializeField]
-    [Range(0f,5f)]
-    private float rad;
-    [SerializeField]
-    private float coolTime;
-    [SerializeField]
-    LayerMask attackLayerMask;
-    private static float currentTime;
+    private MovementDataSO movement = null;
     private void Start()
     {
-        currentTime = coolTime;
-    }
-    private void Update()
-    {
-        DownCoolTime();
+        animator = GetComponent<Animator>();
     }
 
-    private void DownCoolTime()
-    {   
-        currentTime -= Time.deltaTime;
-    }
-    private bool IsCoolTime()
+    public void ShortAttack()
     {
-        if (currentTime <= 0)
+        attackPos = transform.position;
+        attackPos.x += movement._movementData.PlayerDir;
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(attackPos, attackRange, 45f, layerMask);
+        foreach (var item in colliders)
         {
-            currentTime = coolTime;
-            return true;
+            //TODO:몬스터 완성되면 추가할것
+            //item.gameObject.GetComponent<>()
         }
-        else
-        {
-            return false;
-        }
-
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPos.position, attackLength);
-    }
-    public void Attack()
-    {
-        if (!IsCoolTime()) return;
-        //캡슐 형태로 공격.
-        //Collider2D[] hitColliders = Physics2D.OverlapCapsuleAll(endAttackPos.position, startAttackPos.position, CapsuleDirection2D.Horizontal, rad);
-        //Debug.DrawLine(startAttackPos.position, endAttackPos.position);
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(attackPos.position, attackLength,attackLayerMask);
-        foreach(Collider2D collider in hitColliders)
-        {
-            Debug.Log(collider.tag);
-        }
+        Gizmos.DrawWireCube(attackPos, attackRange);
     }
 }

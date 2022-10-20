@@ -12,10 +12,10 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent OnDownPlatform;
     public UnityEvent OnRunningKeyPress;
     public UnityEvent OnDashKeyPress;
-    public UnityEvent OnTeleportingKeyPress;
     public UnityEvent OnUseItemKeyPress;
     public UnityEvent OnUseOilBarrierKeyPress;
     public UnityEvent OnConversationPress;
+    public UnityEvent OnShortAttackKeyPress;
 
     [SerializeField]
     private PlayerAnimation playerAnimation;
@@ -36,24 +36,24 @@ public class PlayerInput : MonoBehaviour
         GetJumpPlatformInput(); //¾ãÀº ÇÃ·§Æû Á¡ÇÁÇØ¼­ ¿Ã¶ó°¨
         GetRunningInput(); //ÀÏ¹Ý °ø°Ý °¨Áö
         GetDashInput();
-        GetTeleportInput();
         GetUseItemInput();
         GetUseOilBarrierInput();
         GetConversationInput();
+        GetShortAttackInput();
     }
 
     private void GetConversationInput()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if(playerCon.isCanConversation == true && playerCon.isTalking == false)
+            if (playerCon.isCanConversation == true && playerCon.isTalking == false)
             {
                 OnConversationPress?.Invoke();
             }
         }
         else if (playerCon.isCanConversation == true && playerCon.isTalking == true)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 OnConversationPress?.Invoke();
             }
@@ -109,7 +109,7 @@ public class PlayerInput : MonoBehaviour
                 OnJumpPlatform?.Invoke();
             }
         }
-        
+
     }
     /// <summary>
     /// ¾ãÀº ÇÃ·§Æû À§¿¡ ÀÖÀ» ¶§ downÅ°¸¦ ´©¸£¸é ÇÃ·§ÆûÀ» ³»·Á°¨
@@ -158,14 +158,14 @@ public class PlayerInput : MonoBehaviour
             }
         }
     }
-            
-    private void GetTeleportInput()
+
+    private void GetShortAttackInput()
     {
         if (playerCon.isTalking == false)
         {
-            if (Input.GetKeyDown(KeyCode.H))
+            if (Input.GetKeyDown(KeyCode.X))
             {
-                OnTeleportingKeyPress?.Invoke();
+                OnShortAttackKeyPress?.Invoke();
             }
         }
     }
