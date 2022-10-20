@@ -12,6 +12,6 @@ public class Idle : State<MonsterFSM>
     //플레이어 위치 반환
     public Vector2 SearchPlayer(MonsterSO owner, float findRange)
     {
-
+        return Vector2.zero;
     }
 }
