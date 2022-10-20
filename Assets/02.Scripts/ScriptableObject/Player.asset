@@ -16,7 +16,7 @@ MonoBehaviour:
     gravity: 3.5
     speed: 7
     jumpForce: 8
-    jumpTimeCounter: -0.0040141093
+    jumpTimeCounter: 0.17706048
     jumpTime: 0.35
     jumpCounter: 2
     playerDir: -1
@@ -28,5 +28,5 @@ MonoBehaviour:
     isCanDash: 1
     isCanRunning: 1
     isCanDive: 0
-  startPos: {x: 4.7, y: 3.29}
+  startPos: {x: -13.97, y: -3.1}
   loadingDataSO: {fileID: 11400000, guid: 194ced21bd8921a4d877d41d19d72d85, type: 2}

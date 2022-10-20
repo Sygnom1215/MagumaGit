@@ -25,7 +25,11 @@ public class MovementDataSO : ScriptableObject
         _movementData.Speed = defaultSpeed;
         _movementData.IsRunning = false;
 
-        if (LoadContainer.IsFirstLoad)
+        if(SceneManager.GetActiveScene().name == "Volcano1")
+        {
+            Potal.SetDefaultPos(this, loadingDataSO, 0);
+        }
+        else if (LoadContainer.IsFirstLoad)
         {
             Potal.SetDefaultPos(this, loadingDataSO, SceneManager.GetActiveScene().name);
             LoadContainer.IsFirstLoad = false;

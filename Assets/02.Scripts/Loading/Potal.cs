@@ -55,7 +55,12 @@ public class Potal : MonoBehaviour
             LoadingManager.LoadScene(dirScene, ((int)sceneType));
         }
     }
+    public void InvokePotal()
+    {
+        movementDataSO.startPos = loadingDataSO.startPos[0];
+        LoadingManager.LoadScene(dirScene, ((int)sceneType));
 
+    }
     public void SetDefaultPos(MovementDataSO owner)
     {
         owner.startPos = loadingDataSO.startPos[(int)potalStartType];
@@ -65,6 +70,10 @@ public class Potal : MonoBehaviour
         startType += "_1"; //enum과 이름 맞추기 위해
         STARTTYPE curType = (STARTTYPE)Enum.Parse(typeof(STARTTYPE), startType);
         owner.startPos = _loadingDataSO.startPos[(int)curType];
+    }
+    public static void SetDefaultPos(MovementDataSO owner, LoadingDataSO _loadingDataSO, int startType)
+    {
+        owner.startPos = _loadingDataSO.startPos[startType];
     }
     public void SelectStage()
     {

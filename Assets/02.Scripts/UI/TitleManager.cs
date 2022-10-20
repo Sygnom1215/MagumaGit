@@ -7,11 +7,9 @@ public class TitleManager : MonoBehaviour
     [SerializeField]
     private GameObject setPanel;
     [SerializeField]
-    private GameObject potals;
+    private GameObject potal;
     [SerializeField]
     private GameObject titleCanvas;
-    [SerializeField]
-    private GameObject canvas;
 
     private bool isOpenSetsPanel = false;
 
@@ -22,33 +20,12 @@ public class TitleManager : MonoBehaviour
         titleCanvas.SetActive(true); // Title
 
         setPanel.SetActive(false); // 설정창
-        potals.SetActive(false); // 포탈
-        canvas.SetActive(false); // BackButton
     }
-
-    public void PlayButton()
-    {
-            potals.SetActive(true);
-            canvas.SetActive(true);
-            
-            titleCanvas.SetActive(false);
-    }
-
-    public void BackButton()
-    {
-        canvas.SetActive(false);
-        potals.SetActive(false);
-
-        titleCanvas.SetActive(true);
-    }
-    
-
-
 
     // Title관련
     public void SetButton()
     {
-        if(isOpenSetsPanel == false)
+        if (isOpenSetsPanel == false)
         {
             setPanel.SetActive(true);
             isOpenSetsPanel = true;
