@@ -2,7 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Move : MonoBehaviour
+public class Move : State<MonsterFSM>
 {
-    public abstract void Moving(Monster monster);
+
+    public override void OnUpdate(float deltaTime)
+    {
+
+    }
+    public void Moving(MonsterSO monster)
+    {
+
+    }
 }

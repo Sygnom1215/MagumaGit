@@ -2,8 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Idle : MonoBehaviour
+public class Idle : State<MonsterFSM>
 {
+    public override void OnUpdate(float deltaTime)
+    {
+        throw new System.NotImplementedException();
+    }
+
     //플레이어 위치 반환
-    public abstract Vector2 SearchPlayer(Monster owner, float findRange);
+    public Vector2 SearchPlayer(MonsterSO owner, float findRange)
+    {
+
+    }
 }

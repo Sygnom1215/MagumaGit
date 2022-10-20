@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parring : MonoBehaviour
+public class Parring : State<MonsterFSM>
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnUpdate(float deltaTime)
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

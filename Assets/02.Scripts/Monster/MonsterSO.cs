@@ -3,19 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Monsters.Utill;
 
-[CreateAssetMenu(menuName = "Monster/Monster", fileName = "Monster_")]
-public class Monster : ScriptableObject
+[CreateAssetMenu(menuName = "SO/Monster/Monster", fileName = "Monster_")]
+public class MonsterSO : ScriptableObject
 {
     [SerializeField]
     private int id;
     [SerializeField]
-    private Type type;
-    [SerializeField]
     private Attitude attitude;
-
-    //애니메이션 컨트롤 할 거 적어놓기
-    [SerializeField]
-    private FSM monsterFSM;
 
     [Header("Actions")]
     [SerializeField]
@@ -26,8 +20,20 @@ public class Monster : ScriptableObject
     private Parring parringAction;
     [SerializeField]
     private Idle idleAction;
+    [Header("Atc")]
+    [SerializeField]
+    private float noticeRange = 0f;
 
     private Monsters.Utill.MonsterState currentState;
-
     public Monsters.Utill.MonsterState CurrentState => currentState;
+
+    public int Id => id;
+    public Attitude Attitude => attitude;
+
+    public Attack[] GetAttackActions => attackActions;
+    public Heal GetHealAction => healAction;
+    public Parring GetParringAction => parringAction;
+    public Idle GetIdleAction => idleAction;
+
+    public float NoticeRange { get => noticeRange; set { noticeRange = value; } }
 }
